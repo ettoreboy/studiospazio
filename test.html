@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta charset="UTF-8" />
+  <title>Retrieve images on client using JQuery</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script>
+  $(window).load(function() {
+    // Animate loader off screen
+    $(".se-pre-con").fadeOut("slow");
+  });
+   // Function to init the canvas
+   function init() {
+    loadImage("images/test.jpg", 800, 600, '#jquery_img');
+   }
+
+   //load images with jquery
+      function loadImage(path, width, height, target) {
+          $('<img src="'+ path +'">').load(function() {
+            $(this).width(width).height(height).appendTo(target);
+        });
+    }
+
+  </script>
+  <style>
+  .se-pre-con {
+   position: fixed;
+   left: 0px;
+   top: 0px;
+   width: 100%;
+   height: 100%;
+   z-index: 9999;
+   background: url(preloader.gif) center no-repeat #fff;
+}
+  </style>
+</head>
+
+ <!-- Don't forget the init funcion to be called onload -->
+ <body onload="init()">
+   <div id="" class="se-pre-con" ></div>
+   <div id="jquery_img" alt="no image loaded"></div>
+   <div id="jquery_img" alt="no image loaded"></div>
+   <div id="jquery_img" alt="no image loaded"></div>
+   <div id="jquery_img" alt="no image loaded"></div>
+   <div id="jquery_img" alt="no image loaded"></div>
+   <div id="jquery_img" alt="no image loaded"></div>
+ </body>
+</html>
