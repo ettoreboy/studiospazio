@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Retrieve images on client using JQuery</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <link href="css/style.css" rel="stylesheet">
   <script>
   $(window).load(function() {
     // Animate loader off screen
@@ -14,25 +15,17 @@
     loadImage("images/test.jpg", 800, 600, '#jquery_img');
    }
 
+   $.getJSON("test.json", function(json) {
+       console.log(json); // this will show the info it in firebug console
+   });
    //load images with jquery
-      function loadImage(path, width, height, target) {
+    function loadImage(path, width, height, target) {
           $('<img src="'+ path +'">').load(function() {
             $(this).width(width).height(height).appendTo(target);
         });
     }
 
   </script>
-  <style>
-  .se-pre-con {
-   position: fixed;
-   left: 0px;
-   top: 0px;
-   width: 100%;
-   height: 100%;
-   z-index: 9999;
-   background: url(preloader.gif) center no-repeat #fff;
-}
-  </style>
 </head>
 
  <!-- Don't forget the init funcion to be called onload -->
