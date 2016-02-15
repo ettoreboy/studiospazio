@@ -2,8 +2,10 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta charset="UTF-8" />
-  <title>Retrieve images on client using JQuery</title>
+  <title>Retrieves images using JQuery</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/main.js"></script>
+  <link href="../css/reset.css" rel="stylesheet">
   <link href="../css/style.css" rel="stylesheet">
   <script>
   $(window).load(function() {
@@ -12,30 +14,37 @@
   });
    // Function to init the canvas
    function init() {
-    loadImage("../images/test.jpg", 800, 600, '#jquery_img');
+    var projects;
+      loadConfig('../test/test.json').done(function(response) { //is returned as deffered object
+        projects = response.projects;
+        console.log(projects);
+
+        for(var i = 0; i < projects.length; i++) {
+          var id = projects[i].n;
+            for(var n = 0; n < projects[i].pics.length; n++) {
+              loadImage(id + n, projects[i].pics[n], '.content');
+            }
+        }
+    });
+
+
+    //loadImage("../images/test.jpg", 800, 600, '.content');
    }
 
-   $.getJSON("test.json", function(json) {
-       console.log(json); // this will show the info it in firebug console
+   $(document).ready(function() {
+     var total_width = 0;
+     $(".content img").each(function(img){
+      total_width = total_width + $(this).width();
+     });
+     console.log(total_width);
+     $(".content").css("width", total_width);
    });
-   //load images with jquery
-    function loadImage(path, width, height, target) {
-          $('<img src="'+ path +'">').load(function() {
-            $(this).width(width).height(height).appendTo(target);
-        });
-    }
-
   </script>
 </head>
 
  <!-- Don't forget the init funcion to be called onload -->
  <body onload="init()">
    <div id="" class="se-pre-con" ></div>
-   <div id="jquery_img" alt="no image loaded"></div>
-   <div id="jquery_img" alt="no image loaded"></div>
-   <div id="jquery_img" alt="no image loaded"></div>
-   <div id="jquery_img" alt="no image loaded"></div>
-   <div id="jquery_img" alt="no image loaded"></div>
-   <div id="jquery_img" alt="no image loaded"></div>
+   <div id="content" class="content" ></div>
  </body>
 </html>

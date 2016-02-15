@@ -1,11 +1,34 @@
+body{
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+}
+
+.content{
+  text-align: center;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.img-resp{
+  display: inline-block;
+  float: none;
+  width: auto;
+  height: 100vh;
+  max-height: 100vh;
+  max-width: 100%;
+  margin: 0;
+}
 
 /*Loader gif*/
 .se-pre-con {
- position: fixed;
- left: 0px;
- top: 0px;
- width: 100%;
- height: 100%;
- z-index: 9999;
- background: url('../img/preloader.gif') center no-repeat #fff;
+   position: fixed;
+   left: 0px;
+   top: 0px;
+   width: 100%;
+   height: 100%;
+   z-index: 9999;
+   background: url('../img/preloader.gif') center no-repeat #fff;
 }
