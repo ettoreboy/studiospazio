@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Retrieve images on client using JQuery</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
   <script>
   $(window).load(function() {
     // Animate loader off screen
@@ -12,7 +12,7 @@
   });
    // Function to init the canvas
    function init() {
-    loadImage("images/test.jpg", 800, 600, '#jquery_img');
+    loadImage("../images/test.jpg", 800, 600, '#jquery_img');
    }
 
    $.getJSON("test.json", function(json) {
