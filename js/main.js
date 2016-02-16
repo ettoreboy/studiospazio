@@ -28,3 +28,8 @@ function loadImage(id, path, target) {
             $(this).appendTo(target);
         });
     }
+
+function createGalleryItem(id, path){
+  $('<img>').attr("src", path)
+            .appendTo("#lightgallery");
+}
