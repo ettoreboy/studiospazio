@@ -8,18 +8,10 @@ body{
 .content{
   text-align: center;
   width: 100%;
-  overflow-y: hidden;
-  overflow-x: scroll;
 }
 
 .img-resp{
-  display: inline-block;
-  float: none;
-  width: auto;
-  height: 100vh;
-  max-height: 100vh;
-  max-width: 100%;
-  margin: 0;
+
 }
 
 /*Loader gif*/

@@ -30,6 +30,6 @@ function loadImage(id, path, target) {
     }
 
 function createGalleryItem(id, path){
-  $('<img>').attr("src", path)
-            .appendTo("#lightgallery");
+  $('<a class="item" id="'+id+'"></a>').attr("href", path).appendTo("#lightgallery");
+  $('<img>').attr("src", path).appendTo("#"+id);
 }
