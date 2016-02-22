@@ -7,10 +7,11 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/js/lightgallery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/js/lg-fullscreen.min.js"></script>
+  <script src="../js/scroll.js"></script>
 
   <script type="text/javascript" src="../js/main.js"></script>
 
-  <link href=".https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/css/lightgallery.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/css/lightgallery.min.css" rel="stylesheet">
   <link href="../css/reset.css" rel="stylesheet">
   <link href="../css/style.css" rel="stylesheet">
   <script>
@@ -25,28 +26,35 @@
       loadConfig('../test/test.json').done(function(response) { //is returned as deffered object
         projects = response.projects;
         console.log(projects);
-
+        var imgObj = '[';
         for(var i = 0; i < projects.length; i++) {
           var id = projects[i].n;
             for(var n = 0; n < projects[i].pics.length; n++) {
-            //  loadImage(id + n, projects[i].pics[n], '.content');
-              createGalleryItem(id + n, projects[i].pics[n]);
-              
+            //loadImage(id + n, projects[i].pics[n], '.content');
+              var ident = id + i;
+              createGalleryItem(ident, projects[i].pics[n]);
+               imgObj = imgObj + '{"src":\''+ projects[i].pics[n] +'\'},';
             }
         }
+
+        imgObj = imgObj.substring(0, imgObj.length - 1) +']';
+        console.log(imgObj);
+        var horwheel = require('scroll');
+        var wrapper = document.querySelector('#lightgallery');
+        horwheel(wrapper);
+        /*
         $("#lightgallery").lightGallery({
-          selector: '.item',
           dynamic: true,
-          dynamicEl: ,
+          dynamicEl: '\''+imgObj+'\'',
           width: '700px',
           height: '470px',
           mode: 'lg-fade',
-          addClass: 'fixed-size',
           download: true,
           enableSwipe: false,
           enableDrag: false,
           speed: 500
-        });
+        });*/
+
     });
 
     //loadImage("../images/test.jpg", 800, 600, '.content');
@@ -60,9 +68,19 @@
    <div id="content" class="content" ></div>
 
 
-    <ul class="fixed-size" id="lightgallery">
-
-    </ul>
+    <div id="lightgallery">
+      <div class="section">
+                   <div class="article"></div>
+                   <div class="article"></div>
+                   <div class="article"></div>
+                   <div class="article"></div>
+                   <div class="article"></div>
+                   <div class="article"></div>
+                   <div class="article"></div>
+                   <div class="article"></div>
+                   <div class="article"></div>
+      </div>
+    </div>
 
  </body>
 </html>
