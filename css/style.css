@@ -1,17 +1,20 @@
 body{
   position: absolute;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   margin: 0;
 }
 
-.content{
-  text-align: center;
-  width: 100%;
+
+#lightgallery{
+  height: 100vh;
+  max-height: 100vh;
 }
 
 .img-resp{
-
+ display: inline;
+ height: 600px;
+ max-height: 100vh;
 }
 
 /*Loader gif*/

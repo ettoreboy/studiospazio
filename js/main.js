@@ -1,5 +1,5 @@
-/*
-@author Ettore Ciprian [cipettaro@gmail.com]
+/**
+* @author Ettore Ciprian [cipettaro@gmail.com]
 */
 
 /**
@@ -15,7 +15,6 @@ function loadConfig(filepath){
       }
     }
     });
-    var result;
      //Load config
     return $.getJSON(filepath, function(json) {
       return json;
@@ -30,6 +29,21 @@ function loadImage(id, path, target) {
     }
 
 function createGalleryItem(id, path){
-  $('<a class="item" id="'+id+'"></a>').attr("href", path).appendTo("#lightgallery");
-  $('<img>').attr("src", path).appendTo("#"+id);
+  $('<img class="img-resp lazy" width="800px" height="800px" id="'+id+'"/>').attr("data-original", path).appendTo("#lightgallery");
+}
+
+
+
+function loadFile(file) {
+var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+    reader.open('get', file, true);
+    reader.onreadystatechange = displayContents;
+    reader.send(null);
+}
+
+function displayContents(objectID) {
+    if(reader.readyState==4) {
+        var el = document.getElementById(objectID);
+        el.innerHTML = reader.responseText;
+    }
 }

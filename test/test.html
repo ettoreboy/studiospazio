@@ -1,26 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
  <head>
   <meta charset="UTF-8" />
   <title>Display images using JQuery</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/js/lightgallery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/js/lg-fullscreen.min.js"></script>
-  <script src="../js/scroll.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 
   <script type="text/javascript" src="../js/main.js"></script>
+  <script type="text/javascript" src="../js/jquery.lazyload.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.scrollstop.min.js"></script>
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/css/lightgallery.min.css" rel="stylesheet">
   <link href="../css/reset.css" rel="stylesheet">
   <link href="../css/style.css" rel="stylesheet">
   <script>
+
   $(window).load(function() {
     // Animate loader off screen
     $(".se-pre-con").fadeOut("slow");
 
+    //Infinite scroll loop
+    if (document.documentElement.clientWidth + $(window).scrollLeft() >= $(document).width()) {
+        $(document).scrollLeft(0);
+    } else if ($(window).scrollLeft() < 0) {
+        $(document).scrollLeft($(document).width());
+    }
+
+    var totalWidth = 0;
+      $('#lightgallery').children().each(function(){
+        totalWidth += $(this).outerWidth();
+      });
+      $('#lightgallery').css('width', totalWidth);
+
+    //Lazy load
+    $(function() {
+        $("img.lazy").lazyload({
+            effect : "fadeIn"
+        });
+    });
   });
-   // Function to init the canvas
+   /**
+   Init
+   */
    function init() {
     var projects;
       loadConfig('../test/test.json').done(function(response) { //is returned as deffered object
@@ -39,21 +60,7 @@
 
         imgObj = imgObj.substring(0, imgObj.length - 1) +']';
         console.log(imgObj);
-        var horwheel = require('scroll');
-        var wrapper = document.querySelector('#lightgallery');
-        horwheel(wrapper);
-        /*
-        $("#lightgallery").lightGallery({
-          dynamic: true,
-          dynamicEl: '\''+imgObj+'\'',
-          width: '700px',
-          height: '470px',
-          mode: 'lg-fade',
-          download: true,
-          enableSwipe: false,
-          enableDrag: false,
-          speed: 500
-        });*/
+
 
     });
 
@@ -65,22 +72,12 @@
  <!-- Don't forget the init funcion to be called onload -->
  <body onload="init()">
    <div id="" class="se-pre-con" ></div>
-   <div id="content" class="content" ></div>
-
 
     <div id="lightgallery">
-      <div class="section">
-                   <div class="article"></div>
-                   <div class="article"></div>
-                   <div class="article"></div>
-                   <div class="article"></div>
-                   <div class="article"></div>
-                   <div class="article"></div>
-                   <div class="article"></div>
-                   <div class="article"></div>
-                   <div class="article"></div>
-      </div>
     </div>
 
+    <noscript>
+        <p>Javascript is not supported in this browser</p>
+    </noscript>
  </body>
 </html>
