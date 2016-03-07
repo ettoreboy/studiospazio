@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Display images using JQuery</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 
   <script type="text/javascript" src="../js/main.js"></script>
@@ -15,29 +14,11 @@
   <link href="../css/style.css" rel="stylesheet">
   <script>
 
-  $(window).load(function() {
+  $(document).ready(function() {
     // Animate loader off screen
     $(".se-pre-con").fadeOut("slow");
 
-    //Infinite scroll loop
-    if (document.documentElement.clientWidth + $(window).scrollLeft() >= $(document).width()) {
-        $(document).scrollLeft(0);
-    } else if ($(window).scrollLeft() < 0) {
-        $(document).scrollLeft($(document).width());
-    }
 
-    var totalWidth = 0;
-      $('#lightgallery').children().each(function(){
-        totalWidth += $(this).outerWidth();
-      });
-      $('#lightgallery').css('width', totalWidth);
-
-    //Lazy load
-    $(function() {
-        $("img.lazy").lazyload({
-            effect : "fadeIn"
-        });
-    });
   });
    /**
    Init
@@ -61,6 +42,16 @@
         imgObj = imgObj.substring(0, imgObj.length - 1) +']';
         console.log(imgObj);
 
+        var totalWidth = 0;
+          $('#lightgallery').children().each(function(){
+            totalWidth += $(this).outerWidth();
+          });
+          $('#lightgallery').css('width', totalWidth);
+
+          //Lazy load
+          $("img.lazy").lazyload({
+                  effect : "fadeIn"
+          });
 
     });
 
