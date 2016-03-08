@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <title>Display images using JQuery</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  
+  <script type='text/javascript' src='../js/jquery.mousewheel.min.js'></script>
+
   <script type="text/javascript" src="../js/main.js"></script>
   <script type="text/javascript" src="../js/jquery.lazyload.min.js"></script>
   <script type="text/javascript" src="../js/jquery.scrollstop.min.js"></script>
@@ -17,7 +18,21 @@
     // Animate loader off screen
     $(".se-pre-con").fadeOut("slow");
 
+    //Mouswheel
+    $(function() {
 
+      $("html, body").mousewheel(function(event, delta) {
+          var mult = 1;
+          var $this = $(this);
+          if (event.timeStamp - $this.data('oldtimeStamp') < 1000) {
+              //calculate easing here
+              mult = 10000 / (event.timeStamp - $this.data('oldtimeStamp'));
+          }
+          $this.data('oldtimeStamp', event.timeStamp);
+          this.scrollLeft -= (delta) * mult;
+          event.preventDefault();
+      });
+    });
   });
    /**
    Init
@@ -51,6 +66,7 @@
           $("img.lazy").lazyload({
                   effect : "fadeIn"
           });
+
 
     });
 
