@@ -52,6 +52,10 @@
                imgObj = imgObj + '{"src":\''+ projects[i].pics[n] +'\'},';
             }
         }
+        //Lazy load
+        $("img.lazy").lazyload({
+                effect : "fadeIn"
+        });
 
         imgObj = imgObj.substring(0, imgObj.length - 1) +']';
         console.log(imgObj);
@@ -61,12 +65,6 @@
             totalWidth += $(this).outerWidth();
           });
           $('#lightgallery').css('width', totalWidth);
-
-          //Lazy load
-          $("img.lazy").lazyload({
-                  effect : "fadeIn"
-          });
-
 
     });
 
