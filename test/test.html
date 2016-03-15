@@ -15,9 +15,6 @@
   <script>
 
   $(document).ready(function() {
-    // Animate loader off screen
-    $(".se-pre-con").fadeOut("slow");
-
     //Mouswheel
     $(function() {
 
@@ -41,20 +38,19 @@
     var projects;
       loadConfig('../test/test.json').done(function(response) { //is returned as deffered object
         projects = response.projects;
-        console.log(projects);
         var imgObj = '[';
         for(var i = 0; i < projects.length; i++) {
           var id = projects[i].n;
             for(var n = 0; n < projects[i].pics.length; n++) {
-            //loadImage(id + n, projects[i].pics[n], '.content');
               var ident = id + i;
               createGalleryItem(ident, projects[i].pics[n]);
-               imgObj = imgObj + '{"src":\''+ projects[i].pics[n] +'\'},';
+
             }
         }
         //Lazy load
         $("img.lazy").lazyload({
-                effect : "fadeIn"
+                effect : "fadeIn",
+                threshold : 200
         });
 
         imgObj = imgObj.substring(0, imgObj.length - 1) +']';
