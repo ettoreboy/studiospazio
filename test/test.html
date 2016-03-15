@@ -1,83 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
   <meta charset="UTF-8" />
   <title>Display images using JQuery</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/jquery-2.2.1.min.js"></script>
+  <script type='text/javascript' src='../js/endless.min.js'></script>
   <script type='text/javascript' src='../js/jquery.mousewheel.min.js'></script>
 
   <script type="text/javascript" src="../js/main.js"></script>
   <script type="text/javascript" src="../js/jquery.lazyload.min.js"></script>
-  <script type="text/javascript" src="../js/jquery.scrollstop.min.js"></script>
 
   <link href="../css/reset.css" rel="stylesheet">
   <link href="../css/style.css" rel="stylesheet">
   <script>
-
   $(document).ready(function() {
     //Mouswheel
-    $(function() {
+    var multiplier = 20;
+    var container =  $('.container');
 
-      $("html, body").mousewheel(function(event, delta) {
-          var mult = 1;
-          var $this = $(this);
-          if (event.timeStamp - $this.data('oldtimeStamp') < 1000) {
-              //calculate easing here
-              mult = 10000 / (event.timeStamp - $this.data('oldtimeStamp'));
-          }
-          $this.data('oldtimeStamp', event.timeStamp);
-          this.scrollLeft -= (delta) * mult;
-          event.preventDefault();
-      });
+    $('#lightgallery').endless({
+      direction:'horizontal',
+      scrollbar:'enabled'
     });
+
+    container.mousewheel(function(e){
+      container.scrollLeft(container.scrollLeft()-e.deltaY*multiplier);
+      e.preventDefault();
+    });
+
+    var timeout;
+
+    function loop_next(){
+      timeout = window.setTimeout(function() {
+        container.scrollLeft(container.scrollLeft() + 2);
+        loop_next();
+      }, 20);
+    }
+    function loop_prev(){
+      timeout = window.setTimeout(function() {
+        container.scrollLeft(container.scrollLeft() - 2);
+        loop_prev();
+      }, 20);
+    }
+    function stop(){
+      window.clearTimeout(timeout);
+    }
+
+    $(".left-arr").hover(loop_prev, stop);
+    $(".right-arr").hover(loop_next, stop);
   });
-   /**
-   Init
-   */
-   function init() {
+  /**
+  Init
+  */
+  function init() {
     var projects;
-      loadConfig('../test/test.json').done(function(response) { //is returned as deffered object
-        projects = response.projects;
-        var imgObj = '[';
-        for(var i = 0; i < projects.length; i++) {
-          var id = projects[i].n;
-            for(var n = 0; n < projects[i].pics.length; n++) {
-              var ident = id + i;
-              createGalleryItem(ident, projects[i].pics[n]);
-
-            }
+    loadConfig('../test/test.json').done(function(response) { //is returned as deffered object
+      projects = response.projects;
+      var imgObj = '[';
+      for(var i = 0; i < projects.length; i++) {
+        var id = projects[i].n;
+        for(var n = 0; n < projects[i].pics.length; n++) {
+          var ident = id + i;
+          createGalleryItem(ident, projects[i].pics[n]);
         }
-        //Lazy load
-        $("img.lazy").lazyload({
-                effect : "fadeIn",
-                threshold : 200
-        });
+      }
 
-        imgObj = imgObj.substring(0, imgObj.length - 1) +']';
-        console.log(imgObj);
-
-        var totalWidth = 0;
-          $('#lightgallery').children().each(function(){
-            totalWidth += $(this).outerWidth();
-          });
-          $('#lightgallery').css('width', totalWidth);
+      var totalWidth = 0;
+      $('#lightgallery').children().each(function(){
+        totalWidth += $(this).outerWidth();
+      });
+      $('#lightgallery').css('width', totalWidth);
 
     });
 
-    //loadImage("../images/test.jpg", 800, 600, '.content');
-   }
+  }
   </script>
 </head>
 
- <!-- Don't forget the init funcion to be called onload -->
- <body onload="init()">
-   <div id="" class="se-pre-con" ></div>
+<!-- Don't forget the init funcion to be called onload -->
+<body onload="init()">
+<div class="container">
+  <div id="lightgallery">
+  </div>
+</div>
+  <noscript>
+    <p>Javascript is not supported in this browser</p>
+  </noscript>
+  <script>
 
-    <div id="lightgallery">
-    </div>
-
-    <noscript>
-        <p>Javascript is not supported in this browser</p>
-    </noscript>
- </body>
+  </script>
+</body>
 </html>
