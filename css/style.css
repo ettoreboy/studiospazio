@@ -13,11 +13,12 @@ body{
 
 #lightgallery{
   height: 100vh;
-  max-height: 600px;
+  max-height: 100vh;
 }
 
 .img-resp{
  display: inline;
- max-height: 100vh;
+ height: 100%;
+ width: auto;
  background: url('../img/preloader.gif') center no-repeat #fff;
 }
