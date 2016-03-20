@@ -21,6 +21,7 @@
     <link href="css/style.css" rel="stylesheet">
     <script>
     $(document).ready(function() {
+
       //Mouswheel
       var multiplier = 20;
       var container =  $('.container');
@@ -30,10 +31,7 @@
         e.preventDefault();
       });
 
-      $('#lightgallery').endless({
-              direction:'horizontal',
-              scrollbar:'enabled'
-      });
+
 
       var timeout;
 
@@ -72,13 +70,17 @@
           }
         }
 
+
+      }).done(function(){
         var totalWidth = 0;
         $('#lightgallery').children().each(function(){
+          console.log($(this).outerWidth());
           totalWidth += $(this).outerWidth();
         });
         $('#lightgallery').css('width', totalWidth);
-
       });
+
+
 
     }
     </script>
@@ -86,6 +88,10 @@
 
   <!-- Don't forget the init function to be called onload -->
   <body onload="init()">
+    <!-- Navigation arrows -->
+    <div class="arr left-arr"> < </div>
+    <div class="arr right-arr"> > </div>
+
   <div class="container">
     <div id="lightgallery">
     </div>
