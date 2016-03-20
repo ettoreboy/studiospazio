@@ -1,6 +1,5 @@
 body{
   position: absolute;
-  overflow-y: hidden;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -13,11 +12,22 @@ body{
 
 #lightgallery{
   height: 100vh;
-  max-height: 600px;
+  max-height: 100vh;
 }
 
 .img-resp{
  display: inline;
- max-height: 100vh;
+ height: 100%;
+ width: auto;
  background: url('../img/preloader.gif') center no-repeat #fff;
 }
+
+.left-arr,.right-arr{
+  position: absolute;
+  height:10px;
+  width:10px;
+  top:95px;
+  cursor:pointer;
+}
+.left-arr{ left:15px;}
+.right-arr{ right:15px;}
