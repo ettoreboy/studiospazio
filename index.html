@@ -11,8 +11,8 @@
 
     <title>Studiospazio</title>
     <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
-    <script type="text/javascript" src="js/lazysizes.min.js" async=""></script>
-    <script type='text/javascript' src='js/endless.min.js'></script>
+
+    <script type='text/javascript' src='js/lazysizes.min.js'></script>
     <script type='text/javascript' src='js/jquery.mousewheel.min.js'></script>
 
     <script type="text/javascript" src="js/main.js"></script>
@@ -22,6 +22,27 @@
     <script>
     $(document).ready(function() {
 
+      var projects;
+      loadConfig('config.json').done(function(response) { //is returned as deffered object
+        projects = response.projects;
+
+        for(var i = 0; i < projects.length; i++) {
+          var id = projects[i].n;
+          for(var n = 0; n < projects[i].pics.length; n++) {
+            var ident = id + i;
+            createGalleryItem(ident, projects[i].pics[n]);
+          }
+        }
+
+      }).done(function(){
+        var totalWidth = 0;
+        $('.img-resp').each(function(){
+          totalWidth += $(this).width;
+        });
+        $('#lightgallery').css('width', totalWidth);
+        $('.container').css('width', totalWidth);
+
+      });
       //Mouswheel
       var multiplier = 20;
       var container =  $('.container');
@@ -30,8 +51,6 @@
         container.scrollLeft(container.scrollLeft()-e.deltaY*multiplier);
         e.preventDefault();
       });
-
-
 
       var timeout;
 
@@ -54,40 +73,12 @@
       $(".left-arr").hover(loop_prev, stop);
       $(".right-arr").hover(loop_next, stop);
     });
-    /**
-    Init
-    */
-    function init() {
-      var projects;
-      loadConfig('config.json').done(function(response) { //is returned as deffered object
-        projects = response.projects;
-        var imgObj = '[';
-        for(var i = 0; i < projects.length; i++) {
-          var id = projects[i].n;
-          for(var n = 0; n < projects[i].pics.length; n++) {
-            var ident = id + i;
-            createGalleryItem(ident, projects[i].pics[n]);
-          }
-        }
 
-
-      }).done(function(){
-        var totalWidth = 0;
-        $('#lightgallery').children().each(function(){
-          console.log($(this).outerWidth());
-          totalWidth += $(this).outerWidth();
-        });
-        $('#lightgallery').css('width', totalWidth);
-      });
-
-
-
-    }
     </script>
   </head>
 
   <!-- Don't forget the init function to be called onload -->
-  <body onload="init()">
+  <body>
     <!-- Navigation arrows -->
     <div class="arr left-arr"> < </div>
     <div class="arr right-arr"> > </div>

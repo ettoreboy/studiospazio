@@ -29,7 +29,8 @@ function loadImage(id, path, target) {
     }
 
 function createGalleryItem(id, path){
-  $('<img class="img-resp lazyload" data-sizes="auto" id="'+id+'"/>').attr("data-src", path).attr("src", "320_"+path).appendTo("#lightgallery");
+
+  $('<img class="img-resp lazyload" data-sizes="auto" id="'+id+'"/>').attr("data-src", path).attr("src", path).appendTo("#lightgallery");
 }
 
 
