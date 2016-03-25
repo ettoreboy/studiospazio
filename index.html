@@ -11,6 +11,7 @@
 
     <title>Studiospazio</title>
     <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+    <script type='text/javascript' src='js/modernizr-custom.js'></script>
 
     <script type='text/javascript' src='js/lazysizes.min.js'></script>
     <script type='text/javascript' src='js/jquery.mousewheel.min.js'></script>
@@ -22,31 +23,19 @@
     <script>
     $(document).ready(function() {
 
-      var projects;
-      loadConfig('config.json').done(function(response) { //is returned as deffered object
-        projects = response.projects;
-
-        for(var i = 0; i < projects.length; i++) {
-          var id = projects[i].n;
-          for(var n = 0; n < projects[i].pics.length; n++) {
-            var ident = id + i;
-            createGalleryItem(ident, projects[i].pics[n]);
-          }
-        }
-
-      }).done(function(){
+      if (Modernizr.touch) {
+          alert('Touch Screen');
+      } else {
         var totalWidth = 0;
         $('.img-resp').each(function(){
           totalWidth += $(this).width;
         });
         $('#lightgallery').css('width', totalWidth);
-        $('.container').css('width', totalWidth);
 
-      });
+
       //Mouswheel
       var multiplier = 20;
       var container =  $('.container');
-
       container.mousewheel(function(e){
         container.scrollLeft(container.scrollLeft()-e.deltaY*multiplier);
         e.preventDefault();
@@ -73,15 +62,13 @@
       $(".left-arr").hover(loop_prev, stop);
       $(".right-arr").hover(loop_next, stop);
     });
-
+   }
     </script>
   </head>
 
   <!-- Don't forget the init function to be called onload -->
   <body>
-    <!-- Navigation arrows -->
-    <div class="arr left-arr"> < </div>
-    <div class="arr right-arr"> > </div>
+
 
   <div class="container">
     <div id="lightgallery">
