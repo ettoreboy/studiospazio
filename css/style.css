@@ -6,17 +6,20 @@ body{
 }
 
 .container{
-    overflow:hidden;
-    overflow-x:scroll;
+  overflow:hidden;
+  overflow-x:scroll;
 }
 
 #lightgallery{
   height: 100vh;
   max-height: 100vh;
+  white-space: nowrap;
 }
 
+img[data-sizes="auto"] { display: inline-block; }
+
 .img-resp{
- display: inline;
+  display: inline;
  height: 100%;
  width: auto;
  background: url('../img/preloader.gif') center no-repeat #fff;

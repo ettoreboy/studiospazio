@@ -4,8 +4,6 @@
 
 /**
  * load Configurations from a Json file
- * @param {String} the configuration file path
- * @return {Array} sum
  */
 function loadConfig(filepath){
   $.ajaxSetup({beforeSend: function(xhr){
@@ -32,8 +30,6 @@ function createGalleryItem(id, path){
 
   $('<img class="img-resp lazyload" data-sizes="auto" id="'+id+'"/>').attr("data-src", path).attr("src", path).appendTo("#lightgallery");
 }
-
-
 
 function loadFile(file) {
 var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
