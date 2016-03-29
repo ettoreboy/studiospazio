@@ -3,38 +3,68 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>Studiospazio</title>
-    <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
-    <script type="text/javascript" src="js/lazysizes.min.js" async=""></script>
-    <script type='text/javascript' src='js/endless.min.js'></script>
-    <script type='text/javascript' src='js/jquery.mousewheel.min.js'></script>
+  <title>Studiospazio</title>
+  <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+  <script type='text/javascript' src='js/modernizr-custom.js'></script>
+  <script type='text/javascript' src='js/jquery.visible.min.js'></script>
 
-    <script type="text/javascript" src="js/main.js"></script>
+  <script type='text/javascript' src='js/lazysizes.min.js'></script>
+  <script type='text/javascript' src='js/jquery.mousewheel.min.js'></script>
 
-    <link href="css/reset.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <script>
-    $(document).ready(function() {
+  <script type="text/javascript" src="js/main.js"></script>
 
-      //Mouswheel
-      var multiplier = 20;
+  <link href="css/reset.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="container">
+    <div id="lightgallery">
+      <img class="img-resp lazyload" data-sizes="auto" id="img1" data-src="projects/1_GarageSuzzara/Garage 1.png" src=""/>
+      <img class="img-resp lazyload" data-sizes="auto" id="img2" data-src="projects/1_GarageSuzzara/Garage 2.png" src=""/>
+      <img class="img-resp lazyload" data-sizes="auto" id="img3" data-src="projects/1_GarageSuzzara/Garage 3.png" src=""/>
+      <img class="img-resp lazyload" data-sizes="auto" id="img4" data-src="projects/1_GarageSuzzara/Garage 4.png" src=""/>
+      <img class="img-resp lazyload" data-sizes="auto" id="img5" data-src="projects/1_GarageSuzzara/Garage 5.png" src=""/>
+    </div>
+  </div>
+  <noscript>
+    <p>Javascript is not supported in this browser</p>
+  </noscript>
+  <script>
+  $(document).ready(function() {
+
+    if (Modernizr.touch) {
+      alert('Touch Screen');
+    } else {
+
       var container =  $('.container');
-
+      // $("#lightgallery").endless({
+      //   direction:'horizontal', //Direction : up (infinite top scrolling), down (infinite bottom scrolling), vertical (infinite top and bottom scrolling)
+      //   scrollbar:'disable', //Enable or disable the scrollbar
+      //   });
+      //Mouswheel
+      var timeout;
+      var multiplier = 22;
       container.mousewheel(function(e){
         container.scrollLeft(container.scrollLeft()-e.deltaY*multiplier);
+        console.log(e.deltaY);
+        if(e.deltaY < 0 && !$("#lightgallery>:first").visible(true, true) )
+        {
+          console.log("append last" );
+          $("#lightgallery>:first").appendTo("#lightgallery");
+        } else if(e.deltaY > 0 && !$("#lightgallery>:last").visible(true, true)) {
+          console.log("prepend at beginning" );
+        }
+
         e.preventDefault();
       });
-
-
-
-      var timeout;
-
       function loop_next(){
         timeout = window.setTimeout(function() {
           container.scrollLeft(container.scrollLeft() + 2);
@@ -50,57 +80,8 @@
       function stop(){
         window.clearTimeout(timeout);
       }
-
-      $(".left-arr").hover(loop_prev, stop);
-      $(".right-arr").hover(loop_next, stop);
-    });
-    /**
-    Init
-    */
-    function init() {
-      var projects;
-      loadConfig('config.json').done(function(response) { //is returned as deffered object
-        projects = response.projects;
-        var imgObj = '[';
-        for(var i = 0; i < projects.length; i++) {
-          var id = projects[i].n;
-          for(var n = 0; n < projects[i].pics.length; n++) {
-            var ident = id + i;
-            createGalleryItem(ident, projects[i].pics[n]);
-          }
-        }
-
-
-      }).done(function(){
-        var totalWidth = 0;
-        $('#lightgallery').children().each(function(){
-          console.log($(this).outerWidth());
-          totalWidth += $(this).outerWidth();
-        });
-        $('#lightgallery').css('width', totalWidth);
-      });
-
-
-
     }
-    </script>
-  </head>
-
-  <!-- Don't forget the init function to be called onload -->
-  <body onload="init()">
-    <!-- Navigation arrows -->
-    <div class="arr left-arr"> < </div>
-    <div class="arr right-arr"> > </div>
-
-  <div class="container">
-    <div id="lightgallery">
-    </div>
-  </div>
-    <noscript>
-      <p>Javascript is not supported in this browser</p>
-    </noscript>
-    <script>
-
-    </script>
-  </body>
-  </html>
+  });
+  </script>
+</body>
+</html>

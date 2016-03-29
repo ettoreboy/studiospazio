@@ -19,11 +19,6 @@
     var multiplier = 20;
     var container =  $('.container');
 
-    $('#lightgallery').endless({
-      direction:'horizontal',
-      scrollbar:'enabled'
-    });
-
     container.mousewheel(function(e){
       container.scrollLeft(container.scrollLeft()-e.deltaY*multiplier);
       e.preventDefault();
