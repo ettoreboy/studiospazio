@@ -21,6 +21,22 @@
 
   <link href="css/reset.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="container">
+    <div id="lightgallery">
+      <img class="img-resp lazyload" data-sizes="auto" id="img1" data-src="projects/1_GarageSuzzara/Garage 1.png" src=""/>
+      <img class="img-resp lazyload" data-sizes="auto" id="img2" data-src="projects/1_GarageSuzzara/Garage 2.png" src=""/>
+      <img class="img-resp lazyload" data-sizes="auto" id="img3" data-src="projects/1_GarageSuzzara/Garage 3.png" src=""/>
+      <img class="img-resp lazyload" data-sizes="auto" id="img4" data-src="projects/1_GarageSuzzara/Garage 4.png" src=""/>
+      <img class="img-resp lazyload" data-sizes="auto" id="img5" data-src="projects/1_GarageSuzzara/Garage 5.png" src=""/>
+    </div>
+  </div>
+  <noscript>
+    <p>Javascript is not supported in this browser</p>
+  </noscript>
   <script>
   $(document).ready(function() {
 
@@ -64,32 +80,8 @@
       function stop(){
         window.clearTimeout(timeout);
       }
-
-      $(document).scroll(function(){
-        if(document.documentElement.clientHeight +
-          $(document).scrollTop() >= document.body.offsetHeight )$(document).scrollTop(0);
-        });
-
-      }
-    });
-    </script>
-  </head>
-
-  <body>
-    <div class="container">
-      <div id="lightgallery">
-        <img class="img-resp lazyload" data-sizes="auto" id="img1" data-src="projects/1_GarageSuzzara/Garage 1.png" src=""/>
-        <img class="img-resp lazyload" data-sizes="auto" id="img2" data-src="projects/1_GarageSuzzara/Garage 2.png" src=""/>
-        <img class="img-resp lazyload" data-sizes="auto" id="img3" data-src="projects/1_GarageSuzzara/Garage 3.png" src=""/>
-        <img class="img-resp lazyload" data-sizes="auto" id="img4" data-src="projects/1_GarageSuzzara/Garage 4.png" src=""/>
-        <img class="img-resp lazyload" data-sizes="auto" id="img5" data-src="projects/1_GarageSuzzara/Garage 5.png" src=""/>
-      </div>
-    </div>
-    <noscript>
-      <p>Javascript is not supported in this browser</p>
-    </noscript>
-    <script>
-
-    </script>
-  </body>
-  </html>
+    }
+  });
+  </script>
+</body>
+</html>
