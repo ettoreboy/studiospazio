@@ -7,21 +7,19 @@ body{
 
 .container{
   overflow:hidden;
-  overflow-x:scroll;
+  width: 100%;
 }
 
 #lightgallery{
   height: 100vh;
   max-height: 100vh;
-  white-space: nowrap;
 }
 
 img[data-sizes="auto"] { display: inline-block; }
 
 .img-resp{
-  display: inline;
  height: 100%;
- width: auto;
+ width: 100%;
  background: url('../img/preloader.gif') center no-repeat #fff;
 }
 
