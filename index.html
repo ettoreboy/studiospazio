@@ -10,12 +10,6 @@
   <meta name="author" content="">
 
   <title>Studiospazio</title>
-  <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
-  <script type='text/javascript' src='js/modernizr-custom.js'></script>
-  <script type='text/javascript' src='js/jquery.mousewheel.min.js'></script>
-
-  <script type='text/javascript' src='js/flickity.pkgd.min.js'></script>
-  <script type="text/javascript" src="js/main.js"></script>
 
   <link href="css/reset.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -27,23 +21,49 @@
   <div class="container">
     <div id="lightgallery" class="gallery js-flickity"
     data-flickity-options='{
-    "freeScroll": true,
-    "wrapAround": true,
-    "prevNextButtons": true,
-    "pageDots": false,
-    "lazyLoad": true }'>
-      <img class="img-resp lazyload" data-sizes="auto" id="img1" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 1.png" src=""/>
-      <img class="img-resp lazyload" data-sizes="auto" id="img2" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 2.png" src=""/>
-      <img class="img-resp lazyload" data-sizes="auto" id="img3" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 3.png" src=""/>
-      <img class="img-resp lazyload" data-sizes="auto" id="img4" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 4.png" src=""/>
-      <img class="img-resp lazyload" data-sizes="auto" id="img5" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 5.png" src=""/>
+      "freeScroll": true,
+      "wrapAround": true,
+      "prevNextButtons": true,
+      "pageDots": false,
+      "lazyLoad": 2 }'>
+      <img class="img-resp lazyload" data-sizes="auto" id="img1" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 1.jpg" src=""/>
+      <img class="img-resp lazyload" data-sizes="auto" id="img2" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 2.jpg" src=""/>
+      <img class="img-resp lazyload" data-sizes="auto" id="img3" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 3.jpg" src=""/>
+      <img class="img-resp lazyload" data-sizes="auto" id="img4" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 4.jpg" src=""/>
+      <img class="img-resp lazyload" data-sizes="auto" id="img5" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 5.jpg" src=""/>
     </div>
   </div>
   <noscript>
-    <p>Javascript is not supported in this browser</p>
+    <p>Please enable Javascript to use this webpage correctly</p>
   </noscript>
+  <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+  <script type='text/javascript' src='js/modernizr-custom.js'></script>
+  <script type='text/javascript' src='js/jquery.mousewheel.min.js'></script>
+
+  <script type='text/javascript' src='js/flickity.pkgd.min.js'></script>
+  <script type="text/javascript" src="js/main.js"></script>
   <script>
   $(document).ready(function() {
+    $('.gallery').mousewheel(function(e) {
+      e.preventDefault();
+      var flkty = Flickity.data(this);
+
+      if (!window.wheeling) {
+        // console.log('start wheeling!');
+
+        if(e.deltaX > 0 || e.deltaY < 0){
+          flkty.next();
+        } else if(e.deltaX < 0 || e.deltaY > 0){
+          flkty.previous();
+        }
+      }
+
+      clearTimeout(window.wheeling);
+      window.wheeling = setTimeout(function() {
+        delete window.wheeling;
+      }, 250);
+
+    });
 
   });
   </script>
