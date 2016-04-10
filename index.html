@@ -85,31 +85,42 @@ data-flickity-options='{
 var flkty;
 var carousel;
 var open_text = false;
+
+function updateText(element){
+    var currentId =  flkty.selectedElement.id;
+    if(flkty.selectedIndex >= 0 && currentId !== element.id ){
+      $(element).css('display', 'none');
+      $('div.textgallery #'+currentId).fadeIn();
+    }
+}
+
 $(document).ready(function() {
 
   $('.gallery').on( 'cellSelect',  function() {
-    carousel = document.querySelector('.gallery');
-    flkty = Flickity.data( carousel );
-    console.log( 'Flickity select ' + flkty.selectedIndex + " Element id: "+ flkty.selectedElement.id);
-    $('div.textgallery div').each(function(element){
-      var currentId =  flkty.selectedElement.id;
-      if(flkty.selectedIndex >= 0 && currentId !== this.id && open_text){
-        $(this).css('display', 'none');
-        $('div.textgallery #'+currentId).fadeIn();
-      }
-    });
+    if(open_text){
+      carousel = document.querySelector('.gallery');
+      flkty = Flickity.data( carousel );
+      console.log( 'Flickity select ' + flkty.selectedIndex + " Element id: "+ flkty.selectedElement.id);
+      $('div.textgallery div').each(function(element){
+        var currentId =  flkty.selectedElement.id;
+        if(flkty.selectedIndex >= 0 && currentId !== this.id ){
+          $(this).css('display', 'none');
+          $('div.textgallery #'+currentId).fadeIn();
+        }
+      });
+    }
   });
 
- $('.more-button').on( 'click',  function() {
-   carousel = document.querySelector('.gallery');
-   flkty = Flickity.data( carousel );
-   if(!open_text){
-     console.log("Open text");
-     open_text = true;
-   }else{
-    console.log("Close text");
-     open_text = false;
-   }
+  $('.more-button').on( 'click',  function() {
+    carousel = document.querySelector('.gallery');
+    flkty = Flickity.data( carousel );
+    if(!open_text){
+      console.log("Open text");
+      open_text = true;
+    }else{
+      console.log("Close text");
+      open_text = false;
+    }
   });
 });
 </script>
