@@ -9,6 +9,7 @@ body{
   height: 100vh;
   width: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
 h2 {
@@ -42,6 +43,9 @@ h2 {
   top: 20%;
   left: 20%;
   right: 20%;
+
+  text-align: justify;
+  word-wrap: normal;
 }
 
 .textgallery div{
@@ -76,4 +80,23 @@ h2 {
   margin-top: 0px;
   margin-bottom: 2px;
   cursor: pointer;
+}
+
+/*MOBILE 480px*/
+
+@media (max-width: 480px) {
+
+  .textgallery{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    top: 20%;
+    left: 8%;
+    right: 8%;
+  }
+
+.flickity-prev-next-button {
+ background: hsla(0, 0%, 100%, 0.1) !important; 
+}
+
+
 }
