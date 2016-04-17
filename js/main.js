@@ -44,3 +44,22 @@ function displayContents(objectID) {
         el.innerHTML = reader.responseText;
     }
 }
+
+
+function updateText(element){
+  var currentId =  flkty.selectedElement.id;
+  if(flkty.selectedIndex >= 0 && currentId !== element.id){
+    $(element).css('display', 'none');
+   if(open_text){
+     $('div.textgallery #'+currentId).fadeIn();
+   }
+  }
+}
+
+function toggleText(element){
+  if(open_text){
+    $('div.textgallery #'+element.id).fadeIn();
+  }else{
+     $('div.textgallery #'+element.id).fadeOut();
+  }
+}
