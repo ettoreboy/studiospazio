@@ -2,12 +2,11 @@
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
-  <meta name="author" content="Ettore Ciprain -cipettaro@gmail.com">
+  <meta name="author" content="Ettore Ciprian - cipettaro@gmail.com">
   <meta name="robots" content="index, nofollow">
 
   <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
@@ -105,6 +104,7 @@ data-flickity-options='{
 var flkty;
 var carousel;
 var open_text = false;
+var DELAY = 500, clicks = 0, timer = null;
 
 $(document).ready(function() {
 
@@ -117,19 +117,32 @@ $(document).ready(function() {
       });
   });
 
-  $('.more-button').on( 'click',  function() {
-    carousel = document.querySelector('.gallery');
-    flkty = Flickity.data( carousel );
-    if(!open_text){
-      console.log("Open text");
-      open_text = true;
-    }else{
-      console.log("Close text");
-      open_text = false;
-    }
-    toggleText(flkty.selectedElement);
+  $(".more-button").on("click", function(e){
+       clicks++;  //count clicks
+       if(clicks === 1) {
+           timer = setTimeout(function() {
+             carousel = document.querySelector('.gallery');
+             flkty = Flickity.data( carousel );
+             if(!open_text){
+               console.log("Open text");
+               open_text = true;
+             }else{
+               console.log("Close text");
+               open_text = false;
+             }
+             toggleText(flkty.selectedElement);
+            clicks = 0;             //after action performed, reset counter
+           }, DELAY);
+       } else {
+           clearTimeout(timer);    //prevent single-click action
+                                  //perform double-click action
+           clicks = 0;             //after action performed, reset counter
+       }
+   })
+   .on("dblclick", function(e){
+       e.preventDefault();  //cancel system double-click event
+   });
 
-  });
 });
 </script>
 </body>
