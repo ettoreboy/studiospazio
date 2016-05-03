@@ -1,6 +1,7 @@
 body{
   position: absolute;
-  font-family: 'Nunito', sans-serif;
+  /*font-family: 'Nunito', sans-serif;*/
+  font-family: 'Montserrat', sans-serif;
   color: white;
   font-size: 16px;
   font-weight: 300;
@@ -32,7 +33,6 @@ h2 {
 .img-resp{
  height: auto;
  max-height: 100vh;
- border-left: white solid 4px;
  vertical-align: middle;
 }
 
@@ -95,7 +95,7 @@ h2 {
   }
 
 .flickity-prev-next-button {
- background: hsla(0, 0%, 100%, 0.1) !important; 
+ background: hsla(0, 0%, 100%, 0.1) !important;
 }
 
 
