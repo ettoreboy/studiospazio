@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="Studispazio - 2016">
+  <meta name="keywords" content="studispazio design interiors architettura-italia">
   <meta name="author" content="Ettore Ciprian - cipettaro@gmail.com">
   <meta name="robots" content="index, nofollow">
 
@@ -37,15 +38,13 @@
 </head>
 
 <body>
+  <header class="header">
+    <div class="logo">
+        <h1 id="about_link">studiospazio</h1>
+      <div class="more-button" title="more information">&bull;</div>
+    </div>
+  </header>
   <div class="container">
-    <header class="header">
-      <div class="logo">
-        <a id="about_link">
-          <h1>studiospazio</h1>
-        </a>
-        <div class="more-button" title="more information">&bull;</div>
-      </div>
-    </header>
     <div id="textgallery" class="textgallery">
       <div id="project1">
         <h2>﻿Garage Atelier, Suzzara, Italy</h2>
@@ -94,9 +93,6 @@ data-flickity-options='{
   <img class="img-resp" data-sizes="auto" id="project2" data-flickity-lazyload="projects/2_HouseNuglar/Nuglar 4.jpg" src="" alt=""/>
 </div>
 </div>
-<noscript>
-  <p>Please enable Javascript to see this webpage correctly</p>
-</noscript>
 <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
 <script type='text/javascript' src='js/modernizr-custom.js'></script>
 <script type='text/javascript' src='js/jquery.mousewheel.min.js'></script>
@@ -107,6 +103,7 @@ data-flickity-options='{
 var flkty;
 var carousel;
 var open_text = false;
+var open_plan = false;
 var DELAY = 500, clicks = 0, timer = null;
 
 $(document).ready(function() {
@@ -127,20 +124,26 @@ $(document).ready(function() {
         carousel = document.querySelector('.gallery');
         flkty = Flickity.data( carousel );
         if(!open_text){
-          console.log("Open text");
+          open_plan = false;
           open_text = true;
         }else{
-          console.log("Close text");
           open_text = false;
         }
-        toggleText(flkty.selectedElement);
         clicks = 0;             //after action performed, reset counter
       }, DELAY);
     } else {
       clearTimeout(timer);    //prevent single-click action
-      //perform double-click action
+      if(!open_plan){
+        open_text = false;
+        open_plan = true;
+      }else{
+        open_plan = false;
+      }                        //perform double-click action
       clicks = 0;             //after action performed, reset counter
     }
+
+    toggleText(flkty.selectedElement);
+
   })
   .on("dblclick", function(e){
     e.preventDefault();  //cancel system double-click event
@@ -148,5 +151,8 @@ $(document).ready(function() {
 
 });
 </script>
+<noscript>
+  <p>Please enable Javascript to see this webpage correctly</p>
+</noscript>
 </body>
 </html>
