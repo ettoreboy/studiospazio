@@ -53,13 +53,23 @@ function updateText(element){
    if(open_text){
      $('div.textgallery #'+currentId).fadeIn();
    }
+   if(open_plan){
+     $('div.textgallery #'+currentId+ ' #img-plan').fadeIn();
+   }
   }
 }
 
-function toggleText(element){
-  if(open_text){
+function toggleText(element, show_text, show_plan){
+  if(show_text){
     $('div.textgallery #'+element.id).fadeIn();
-  }else{
+     console.log(element.id +" - Show text: " + show_text );
+  }else if(!show_text){
      $('div.textgallery #'+element.id).fadeOut();
+     console.log(element.id +" - Show text: " + show_text );
+  }
+  if(show_plan){
+    $('div.textgallery #'+element.id+ ' #img-plan').fadeIn();
+  }else if(!show_plan){
+    $('div.textgallery #'+element.id+ ' #img-plan').fadeOut();
   }
 }

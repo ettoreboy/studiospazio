@@ -55,13 +55,15 @@
         Eum suas deleniti ne, per cu latine lucilius. In ferri scriptorem deterruisset per, sea eu minim deleniti petentium. Eam suas partem platonem ei, porro debitis accusam ea sea, pri iusto tantas impedit ei. Probo sensibus an eos. Dico patrioque forensibus in est, eum et alia populo aeterno.
         Offendit salutandi his eu, oblique laoreet salutatus vix ex, id nec dico voluptatibus. Nibh temporibus nec at. Est an quod omnis discere, per cu adipisci abhorreant signiferumque, cu usu facilisi.
       </p>
+      <img id="img-plan" class="overlay-img" alt="Image not available" src="projects/1_GarageSuzzara/Garage_plan.png">
     </div>
     <div id="project2">
       <h2>House Atelier, Nuglar, Switzerland</h2>
       <h3>Direct commission, 2016</h3>
       <p class=""/>
       The church is based on a square floor plan and stands on a small artificial hill. We placed four spaces towards each direction in order to establish a relation with the surrounding environment; the portico faces the city, the chapel faces the garden, the utility space faces the access street and the youth room faces the park. The lateral spaces are arranged in a spiral form and establish a church without any strong direction. Furthermore, the lateral spaces and the central space are separated by inclined walls, which establish a complementary relation between them. Without being directly connected to the exterior, the existence of the exterior environment can be sensed from the interior space of the church. The central space posses both the “limited“ and “expanding” space by the means of the lower straight walls and the higher inclined walls above the chest; during the celebration, we can experience the transition of these two spaces while sitting and standing.
-    </p>
+      </p>
+      <img id="img-plan" class="overlay-img" alt="Image not available" src="projects/2_HouseNuglar/Nuglar_plan.png">
   </div>
   <div id="project3">
     <h2>﻿Garage Atelier, Suzzara, Italy
@@ -81,16 +83,16 @@ data-flickity-options='{
   "prevNextButtons": false,
   "pageDots": false,
   "initialIndex": 1,
-  "lazyLoad": 2 }'>
-  <img class="img-resp" data-sizes="auto" id="project1" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 1.jpg" src="" alt=""/>
-  <img class="img-resp" data-sizes="auto" id="project1" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 2.jpg" src="" alt=""/>
-  <img class="img-resp" data-sizes="auto" id="project1" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 3.jpg" src="" alt=""/>
-  <img class="img-resp" data-sizes="auto" id="project1" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 4.jpg" src="" alt=""/>
-  <img class="img-resp" data-sizes="auto" id="project1" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 5.jpg" src="" alt=""/>
-  <img class="img-resp" data-sizes="auto" id="project2" data-flickity-lazyload="projects/2_HouseNuglar/Nuglar 1.jpg" src="" alt=""/>
-  <img class="img-resp" data-sizes="auto" id="project2" data-flickity-lazyload="projects/2_HouseNuglar/Nuglar 2.jpg" src="" alt=""/>
-  <img class="img-resp" data-sizes="auto" id="project2" data-flickity-lazyload="projects/2_HouseNuglar/Nuglar 3.jpg" src="" alt=""/>
-  <img class="img-resp" data-sizes="auto" id="project2" data-flickity-lazyload="projects/2_HouseNuglar/Nuglar 4.jpg" src="" alt=""/>
+  "lazyLoad": 3 }'>
+  <img class="img-resp" data-sizes="auto" id="project1" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 1.jpg" src="" alt="Image not available"/>
+  <img class="img-resp" data-sizes="auto" id="project1" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 2.jpg" src="" alt="Image not available"/>
+  <img class="img-resp" data-sizes="auto" id="project1" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 3.jpg" src="" alt="Image not available"/>
+  <img class="img-resp" data-sizes="auto" id="project1" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 4.jpg" src="" alt="Image not available"/>
+  <img class="img-resp" data-sizes="auto" id="project1" data-flickity-lazyload="projects/1_GarageSuzzara/Garage 5.jpg" src="" alt="Image not available"/>
+  <img class="img-resp" data-sizes="auto" id="project2" data-flickity-lazyload="projects/2_HouseNuglar/Nuglar 1.jpg" src="" alt="Image not available"/>
+  <img class="img-resp" data-sizes="auto" id="project2" data-flickity-lazyload="projects/2_HouseNuglar/Nuglar 2.jpg" src="" alt="Image not available"/>
+  <img class="img-resp" data-sizes="auto" id="project2" data-flickity-lazyload="projects/2_HouseNuglar/Nuglar 3.jpg" src="" alt="Image not available"/>
+  <img class="img-resp" data-sizes="auto" id="project2" data-flickity-lazyload="projects/2_HouseNuglar/Nuglar 4.jpg" src="" alt="Image not available"/>
 </div>
 </div>
 <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
@@ -102,8 +104,8 @@ data-flickity-options='{
 <script>
 var flkty;
 var carousel;
-var open_text = false;
-var open_plan = false;
+open_text = false;
+open_plan = false;
 var DELAY = 500, clicks = 0, timer = null;
 
 $(document).ready(function() {
@@ -111,38 +113,42 @@ $(document).ready(function() {
   $('.gallery').on( 'cellSelect',  function() {
     carousel = document.querySelector('.gallery');
     flkty = Flickity.data( carousel );
-    //console.log( 'Flickity select ' + flkty.selectedIndex + " Element id: "+ flkty.selectedElement.id);
+    console.log( 'Flickity select ' + flkty.selectedIndex + " Element id: "+ flkty.selectedElement.id);
     $('div.textgallery div').each(function(element){
       updateText(this);
     });
   });
 
   $(".more-button").on("click", function(e){
+    carousel = document.querySelector('.gallery');
+    flkty = Flickity.data( carousel );
     clicks++;  //count clicks
     if(clicks === 1) {
       timer = setTimeout(function() {
-        carousel = document.querySelector('.gallery');
-        flkty = Flickity.data( carousel );
         if(!open_text){
           open_plan = false;
           open_text = true;
         }else{
           open_text = false;
         }
+        //console.log("Click one - Show Image: "+ open_plan +" Show text: "+open_text );
         clicks = 0;             //after action performed, reset counter
+        toggleText(flkty.selectedElement, open_text, open_plan);
+
       }, DELAY);
     } else {
-      clearTimeout(timer);    //prevent single-click action
+      clearTimeout(timer);
       if(!open_plan){
         open_text = false;
         open_plan = true;
       }else{
-        open_plan = false;
+      open_plan = false;
       }                        //perform double-click action
-      clicks = 0;             //after action performed, reset counter
-    }
+      clicks = 0;
+      console.log("Click two - Show Image: "+  open_plan +" Show text: "+open_text );
+      toggleText(flkty.selectedElement, open_text, open_plan);
 
-    toggleText(flkty.selectedElement);
+    }
 
   })
   .on("dblclick", function(e){
