@@ -1,3 +1,4 @@
+
 body{
   position: absolute;
   /*font-family: 'Nunito', sans-serif;*/
@@ -13,10 +14,13 @@ body{
   overflow: hidden;
 }
 
+h1 {
+ cursor: pointer;
+}
+
 h2 {
   margin-bottom: 5px;
 }
-
 
 .container{
   overflow:hidden;
@@ -52,6 +56,7 @@ h2 {
   display: none;
 }
 
+/****************** HEADER ********************/
 .header {
   position: absolute;
   text-align: center;
@@ -80,9 +85,11 @@ h2 {
   margin-top: 0px;
   margin-bottom: 2px;
   cursor: pointer;
+
+  clear:left;
 }
 
-/*MOBILE 480px*/
+/****************** MOBILE 480px **********************/
 
 @media (max-width: 480px) {
 
@@ -93,10 +100,5 @@ h2 {
     left: 8%;
     right: 8%;
   }
-
-.flickity-prev-next-button {
- background: hsla(0, 0%, 100%, 0.1) !important;
-}
-
 
 }
