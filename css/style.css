@@ -35,7 +35,8 @@ h2 {
 }
 
 .img-resp{
- height: auto;
+ height: 100vh;
+ width: auto;
  max-height: 100vh;
  vertical-align: middle;
 }
