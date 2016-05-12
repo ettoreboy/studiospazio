@@ -67,6 +67,8 @@ h2 {
   width: 100%;
 }
 
+img[data-sizes="auto"] { display: block;}
+
 /****************** HEADER ********************/
 .header {
   position: absolute;
