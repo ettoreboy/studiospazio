@@ -38,6 +38,7 @@ h2 {
  height: 100vh;
  width: auto;
  max-height: 100vh;
+ margin: 0 auto;
  vertical-align: middle;
 }
 
@@ -68,6 +69,22 @@ h2 {
 }
 
 img[data-sizes="auto"] { display: block;}
+
+.lazyload {
+  opacity: 0;
+}
+.lazyloading {
+  opacity: 1;
+  transition: 600ms opacity;
+  background: #f7f7f7 url(https://afarkas.github.io/lazysizes/assets/imgs/loader.gif) no-repeat center;
+  min-height: 60px;
+}
+
+.lazyloaded {
+  opacity: 1;
+  transition: 100ms opacity;
+}
+
 
 /****************** HEADER ********************/
 .header {
