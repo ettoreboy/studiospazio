@@ -61,11 +61,11 @@ function updateText(id){
 
 function toggleText(element, show_text, show_plan){
   if(show_text){
+    $(".overlay").fadeIn();
     $('div.textgallery div#'+element.id).fadeIn();
-     console.log(element.id +" - Show text: " + show_text );
   }else if(!show_text){
+     $(".overlay").hide();
      $('div.textgallery div#'+element.id).fadeOut();
-     console.log(element.id +" - Show text: " + show_text );
   }
   if(show_plan){
     $('div.textgallery img#'+element.id).fadeIn(1000);
