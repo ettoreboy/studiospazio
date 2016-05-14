@@ -38,13 +38,13 @@ h2 {
  height: 100vh;
  width: auto;
  max-height: 100vh;
- margin: 0 auto;
- vertical-align: middle;
+ margin: 0px;
+ padding: 0px;
 }
 
 .textgallery{
   position: absolute;
-  margin: auto;
+  margin: 0px;
   z-index: 10;
   top: 20%;
   left: 20%;
