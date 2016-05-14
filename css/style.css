@@ -22,6 +22,17 @@ h2 {
   margin-bottom: 5px;
 }
 
+.overlay {
+    background: #e9e9e9;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
+}
+
 .container{
   overflow:hidden;
   width: 100%;
@@ -76,7 +87,7 @@ img[data-sizes="auto"] { display: block;}
 .lazyloading {
   opacity: 1;
   transition: 600ms opacity;
-  background: #f7f7f7 url(https://afarkas.github.io/lazysizes/assets/imgs/loader.gif) no-repeat center;
+  background: #f7f7f7;
   min-height: 60px;
 }
 
@@ -87,7 +98,7 @@ img[data-sizes="auto"] { display: block;}
 
 
 /****************** HEADER ********************/
-.header {
+header {
   position: absolute;
   text-align: center;
   z-index: 10;
@@ -98,26 +109,39 @@ img[data-sizes="auto"] { display: block;}
 
 .logo {
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
+
   font-size: 40px;
   letter-spacing: 1px;
   font-weight: 400;
+  margin-bottom: 10px;
+  padding: 0px;
+  max-width: 50%;
+}
+
+/*Animate title on opening*/
+.logo {
+  color: white;
+	transition: all 6s ease-out;
 }
 
 .more-button {
   display: inline;
   position: relative;
   text-align: center;
-  font-size: 34px;
-  margin-left: auto;
-  margin-right: auto;
+
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: white;
 
   padding: 0px;
   margin-top: 0px;
-  margin-bottom: 2px;
   cursor: pointer;
 
-  clear:left;
 }
+
 
 /****************** MOBILE 480px **********************/
 
@@ -126,9 +150,11 @@ img[data-sizes="auto"] { display: block;}
   div.textgallery {
     overflow-x: hidden;
     overflow-y: scroll;
-    top: 20%;
-    left: 5%;
-    right: 5%;
+    top: 25%;
+    left: 6%;
+    right: 6%;
   }
+
+
 
 }
