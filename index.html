@@ -141,9 +141,8 @@ $(document).ready(function() {
     prevNextButtons: false,
     pageDots: false,
     imagesLoaded: true,
-    initialIndex: 5,
     percentPosition: false
-  });
+  }).flickity( 'select', 5, true, true);
 
   $('.gallery').on( 'cellSelect',  function() {
     carousel = document.querySelector('.gallery');

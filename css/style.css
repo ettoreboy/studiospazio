@@ -185,13 +185,14 @@ header {
 @media (max-width: 480px) {
 
   div.textgallery {
-    overflow-x: hidden;
-    overflow-y: scroll;
     top: 25%;
     left: 6%;
     right: 6%;
   }
 
+  div.textgallery div{
+     overflow: auto;
+  }
 
 
 }
