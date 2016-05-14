@@ -35,8 +35,10 @@ h2 {
 }
 
 .img-resp{
- height: auto;
+ height: 100vh;
+ width: auto;
  max-height: 100vh;
+ margin: 0 auto;
  vertical-align: middle;
 }
 
@@ -55,6 +57,34 @@ h2 {
 .textgallery div{
   display: none;
 }
+
+.overlay-img{
+  position: absolute;
+  display: none;
+  z-index: 20;
+  margin: auto;
+  vertical-align: middle;
+  height: auto;
+  width: 100%;
+}
+
+img[data-sizes="auto"] { display: block;}
+
+.lazyload {
+  opacity: 0;
+}
+.lazyloading {
+  opacity: 1;
+  transition: 600ms opacity;
+  background: #f7f7f7 url(https://afarkas.github.io/lazysizes/assets/imgs/loader.gif) no-repeat center;
+  min-height: 60px;
+}
+
+.lazyloaded {
+  opacity: 1;
+  transition: 100ms opacity;
+}
+
 
 /****************** HEADER ********************/
 .header {
@@ -93,12 +123,12 @@ h2 {
 
 @media (max-width: 480px) {
 
-  .textgallery{
+  div.textgallery {
     overflow-x: hidden;
     overflow-y: scroll;
     top: 20%;
-    left: 8%;
-    right: 8%;
+    left: 5%;
+    right: 5%;
   }
 
 }

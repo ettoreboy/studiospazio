@@ -46,20 +46,30 @@ function displayContents(objectID) {
 }
 
 
-function updateText(element){
+function updateText(id){
   var currentId =  flkty.selectedElement.id;
-  if(flkty.selectedIndex >= 0 && currentId !== element.id){
-    $(element).css('display', 'none');
+  if(flkty.selectedIndex >= 0 && currentId !== id){
+    $("div.textgallery #"+id).hide();
    if(open_text){
-     $('div.textgallery #'+currentId).fadeIn();
+     $('div.textgallery div#'+currentId).fadeIn();
+   }
+   if(open_plan){
+     $('div.textgallery img#'+currentId).fadeIn(1000);
    }
   }
 }
 
-function toggleText(element){
-  if(open_text){
-    $('div.textgallery #'+element.id).fadeIn();
-  }else{
-     $('div.textgallery #'+element.id).fadeOut();
+function toggleText(element, show_text, show_plan){
+  if(show_text){
+    $('div.textgallery div#'+element.id).fadeIn();
+     console.log(element.id +" - Show text: " + show_text );
+  }else if(!show_text){
+     $('div.textgallery div#'+element.id).fadeOut();
+     console.log(element.id +" - Show text: " + show_text );
+  }
+  if(show_plan){
+    $('div.textgallery img#'+element.id).fadeIn(1000);
+  }else if(!show_plan){
+    $('div.textgallery img#'+element.id).fadeOut();
   }
 }
