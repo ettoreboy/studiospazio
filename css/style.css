@@ -120,12 +120,12 @@ header {
   max-width: 50%;
 }
 
-/*Animate title on opening*/
+/*Animate title on opening
 .logo {
-  color: white;
+
 	transition: all 6s ease-out;
 }
-
+*/
 .more-button {
   display: inline;
   position: relative;
