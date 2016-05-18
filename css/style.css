@@ -44,6 +44,10 @@ h2 {
   white-space: nowrap;
 }
 
+.carousel-cell {
+  height: 100%;
+}
+
 .img-resp{
  height: 100%;
  width: auto;
@@ -77,8 +81,6 @@ h2 {
   height: auto;
   width: 100%;
 }
-
-img[data-sizes="auto"] { display: block;}
 
 .lazyload {
   opacity: 0;

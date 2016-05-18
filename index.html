@@ -83,40 +83,40 @@
   <img class="img-resp lazyload" id="project1"
   src="projects/1_GarageSuzzara/Garage_1.jpeg"
   data-sizes="auto"
-  data-srcset="projects/1_GarageSuzzara/Garage_1.jpeg 360w, projects/1_GarageSuzzara/768_Garage_1.jpeg 1000w, projects/1_GarageSuzzara/1200_Garage_1.jpeg 1400w"
+  data-srcset="projects/1_GarageSuzzara/Garage_1.jpeg 780w, projects/1_GarageSuzzara/768_Garage_1.jpeg 1000w, projects/1_GarageSuzzara/1200_Garage_1.jpeg 1400w"
   alt="Image not available"/>
   <img class="img-resp lazyload" id="project1"
   src="projects/1_GarageSuzzara/Garage_2.jpeg"
   data-sizes="auto"
-  data-srcset="projects/1_GarageSuzzara/Garage_2.jpeg 360w, projects/1_GarageSuzzara/768_Garage_2.jpeg 1000w, projects/1_GarageSuzzara/1200_Garage_2.jpeg 1400w"
+  data-srcset="projects/1_GarageSuzzara/Garage_2.jpeg 780w, projects/1_GarageSuzzara/768_Garage_2.jpeg 1000w, projects/1_GarageSuzzara/1200_Garage_2.jpeg 1400w"
   alt="Image not available"/>
   <img class="img-resp" data-sizes="auto" id="project1"
   src="projects/1_GarageSuzzara/Garage_3.jpeg"
-  data-srcset="projects/1_GarageSuzzara/Garage_3.jpeg 360w, projects/1_GarageSuzzara/768_Garage_3.jpeg 1000w, projects/1_GarageSuzzara/1200_Garage_3.jpeg 1400w"
+  data-srcset="projects/1_GarageSuzzara/Garage_3.jpeg 780w, projects/1_GarageSuzzara/768_Garage_3.jpeg 1000w, projects/1_GarageSuzzara/1200_Garage_3.jpeg 1400w"
   alt="Image not available"/>
   <img class="img-resp " data-sizes="auto" id="project1"
-  data-srcset="projects/1_GarageSuzzara/Garage_4.jpeg 360w, projects/1_GarageSuzzara/768_Garage_4.jpeg 1000w, projects/1_GarageSuzzara/1200_Garage_4.jpeg 1400w"
+  data-srcset="projects/1_GarageSuzzara/Garage_4.jpeg 780w, projects/1_GarageSuzzara/768_Garage_4.jpeg 1000w, projects/1_GarageSuzzara/1200_Garage_4.jpeg 1400w"
   src="projects/1_GarageSuzzara/Garage_4.jpeg"
   alt="Image not available"/>
   <img class="img-resp " data-sizes="auto" id="project1"
-  data-srcset="projects/1_GarageSuzzara/Garage_5.jpeg 360w, projects/1_GarageSuzzara/768_Garage_5.jpeg 1000w, projects/1_GarageSuzzara/1200_Garage_5.jpeg 1400w"
+  data-srcset="projects/1_GarageSuzzara/Garage_5.jpeg 780w, projects/1_GarageSuzzara/768_Garage_5.jpeg 1000w, projects/1_GarageSuzzara/1200_Garage_5.jpeg 1400w"
   src="projects/1_GarageSuzzara/Garage_5.jpeg"
   alt="Image not available"/>
   <img class="img-resp " data-sizes="auto" id="project2"
-  data-srcset="projects/2_HouseNuglar/Nuglar_1.jpeg 360w, projects/2_HouseNuglar/768_Nuglar_1.jpeg 1000w, projects/2_HouseNuglar/1200_Nuglar_1.jpeg 1400w"
+  data-srcset="projects/2_HouseNuglar/Nuglar_1.jpeg 780w, projects/2_HouseNuglar/768_Nuglar_1.jpeg 1000w, projects/2_HouseNuglar/1200_Nuglar_1.jpeg 1400w"
   src="projects/2_HouseNuglar/Nuglar_1.jpeg"
   alt="Image not available"/>
   <img class="img-resp " data-sizes="auto" id="project2"
   src="projects/2_HouseNuglar/Nuglar_2.jpeg"
-  data-srcset="projects/2_HouseNuglar/Nuglar_2.jpeg 360w, projects/2_HouseNuglar/768_Nuglar_2.jpeg 1000w, projects/2_HouseNuglar/1200_Nuglar_2.jpeg 1400w"
+  data-srcset="projects/2_HouseNuglar/Nuglar_2.jpeg 780w, projects/2_HouseNuglar/768_Nuglar_2.jpeg 1000w, projects/2_HouseNuglar/1200_Nuglar_2.jpeg 1400w"
   alt="Image not available"/>
   <img class="img-resp " data-sizes="auto" id="project2"
   src="projects/2_HouseNuglar/Nuglar_3.jpeg"
-  data-srcset="projects/2_HouseNuglar/Nuglar_3.jpeg 360w, projects/2_HouseNuglar/768_Nuglar_3.jpeg 1000w, projects/2_HouseNuglar/1200_Nuglar_3.jpeg 1400w"
+  data-srcset="projects/2_HouseNuglar/Nuglar_3.jpeg 780w, projects/2_HouseNuglar/768_Nuglar_3.jpeg 1000w, projects/2_HouseNuglar/1200_Nuglar_3.jpeg 1400w"
   alt="Image not available"/>
   <img class="img-resp " data-sizes="auto" id="project2"
   src="projects/2_HouseNuglar/Nuglar_4.jpeg"
-  data-srcset="projects/2_HouseNuglar/Nuglar_4.jpeg 360w, projects/2_HouseNuglar/768_Nuglar_4.jpeg 1000w, projects/2_HouseNuglar/1200_Nuglar_4.jpeg 1400w"
+  data-srcset="projects/2_HouseNuglar/Nuglar_4.jpeg 780w, projects/2_HouseNuglar/768_Nuglar_4.jpeg 1000w, projects/2_HouseNuglar/1200_Nuglar_4.jpeg 1400w"
   alt="Image not available"/>
 </div>
 
@@ -141,7 +141,8 @@ $(document).ready(function() {
     prevNextButtons: false,
     pageDots: false,
     imagesLoaded: true,
-    percentPosition: true
+    setGallerySize: false,
+    resize: true
   }).flickity( 'select', 5, true, true);
 
   $('.gallery').on( 'cellSelect',  function() {
