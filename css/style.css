@@ -91,13 +91,6 @@ h2 {
 .lazyloading {
   opacity: 1;
   transition: 600ms opacity;
-  background: #f7f7f7;
-  min-height: 60px;
-}
-
-.lazyloaded {
-  opacity: 1;
-  transition: 100ms opacity;
 }
 
 
