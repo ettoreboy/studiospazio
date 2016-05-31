@@ -85,12 +85,13 @@ h2 {
   width: 100%;
 }
 
-.lazyload {
-  opacity: 0;
-}
+.lazyload,
 .lazyloading {
-  opacity: 1;
-  transition: 600ms opacity;
+    opacity: 0;
+}
+.lazyloaded {
+    opacity: 1;
+    transition: opacity 300ms;
 }
 
 
