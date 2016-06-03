@@ -99,6 +99,10 @@ a, button {
   vertical-align: middle;
   height: auto;
   width: 100%;
+
+-moz-user-select: none;
+-webkit-user-select: none;
+user-select: none;
 }
 
 .lazyload,
