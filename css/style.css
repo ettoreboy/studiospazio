@@ -226,25 +226,15 @@ header {
 	left: 0;
 	z-index: 1000;
 	opacity: 0;
-	background: rgba(143,27,15,0.8);
+	background: grey;
 	transition: all 0.3s;
 }
 
 .md-show ~ .md-overlay {
-	opacity: 1;
+	opacity: 0.8;
 	visibility: visible;
 }
 
-.md-perspective,
-.md-perspective body {
-	height: 100%;
-	overflow: hidden;
-}
-
-.md-perspective body  {
-	background: #222;
-	perspective: 600px;
-}
 
 /* Effect 12:  Just me */
 .md-effect-12 .md-content {
@@ -256,10 +246,6 @@ header {
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
-}
-
-.md-show.md-effect-12 ~ .md-overlay {
-	background: #e74c3c;
 }
 
 .md-effect-12 .md-content h3,
