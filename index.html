@@ -48,7 +48,7 @@
       </div>
       <div class="more-button hvr-glow" title="more information"></div>
     </header>
-    <div class="text-container">
+    <div class="text-container" draggable="false">
       <div id="textgallery" class="textgallery">
         <div id="project1">
           <h2>﻿Garage Atelier, Suzzara, Italy</h2>
@@ -203,6 +203,7 @@ function toggleText (element, show_text, show_plan) {
 }
 
 $(document).ready(function() {
+  carousel = document.querySelector('.gallery');
 
   jQuery('.gallery').flickity({
     // options
@@ -216,7 +217,7 @@ $(document).ready(function() {
   }).flickity( 'select', 5, true, true);
 
   $('.gallery').on( 'cellSelect',  function() {
-    carousel = document.querySelector('.gallery');
+
     flkty = Flickity.data( carousel );
     console.log( 'Flickity select ' + flkty.selectedIndex + " Element id: "+ flkty.selectedElement.id);
     $('div.textgallery > *').each(function(element){
@@ -225,7 +226,7 @@ $(document).ready(function() {
   });
 
   $(".more-button").on("click", function(e){
-    carousel = document.querySelector('.gallery');
+
     flkty = Flickity.data( carousel );
     clicks++;  //count clicks
     if(clicks === 1) {
@@ -261,6 +262,11 @@ $(document).ready(function() {
 
   //add lazysizes
   $('.img-resp').addClass('lazyload');
+  //trigger reposition when image is loaded
+  $('.img-resp').on('load',function(){
+      flkty = Flickity.data( carousel );
+      flkty.reposition();
+  });
 
 });
 </script>

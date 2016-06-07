@@ -226,12 +226,12 @@ header {
 	left: 0;
 	z-index: 1000;
 	opacity: 0;
-	background: grey;
+	background: white;
 	transition: all 0.3s;
 }
 
 .md-show ~ .md-overlay {
-	opacity: 0.8;
+	opacity: 0.9;
 	visibility: visible;
 }
 
@@ -263,7 +263,7 @@ header {
 
 /* Content styles */
 .md-content {
-	color: #fff;
+	color: black;
 	background: #e74c3c;
 	position: relative;
 	border-radius: 3px;
