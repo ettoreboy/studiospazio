@@ -171,6 +171,8 @@ var polyfilter_scriptpath = '/js/';
 </script>
 <script type="text/javascript" src="js/cssParser.js"></script>
 <script type="text/javascript" src="js/css-filters-polyfill.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+
 <script>
 var flkty;
 var carousel;
@@ -264,6 +266,48 @@ $(document).ready(function() {
   .on("dblclick", function(e){
     e.preventDefault();  //cancel system double-click event
   });
+
+//Mouswheel horizontal
+  $(".gallery").mousewheel(function(e) {
+    e.preventDefault();
+     var flkty = Flickity.data(this);
+
+     if (!window.wheeling) {
+         // console.log('start wheeling!');
+
+         if(e.deltaX > 0 || e.deltaY < 0){
+             flkty.next();
+         } else if(e.deltaX < 0 || e.deltaY > 0){
+             flkty.previous();
+         }
+     }
+
+     clearTimeout(window.wheeling);
+     window.wheeling = setTimeout(function() {
+         // console.log('stop wheeling!');
+
+         delete window.wheeling;
+
+         // reset wheeldelta
+         window.wheeldelta.x = 0;
+         window.wheeldelta.y = 0;
+     }, 250);
+
+     window.wheeldelta.x += e.deltaFactor * e.deltaX;
+     window.wheeldelta.y += e.deltaFactor * e.deltaY;
+     if(window.wheeldelta.x > 500 || window.wheeldelta.y > 500 || window.wheeldelta.x < -500 || window.wheeldelta.y < -500){
+         window.wheeldelta.x = 0;
+         window.wheeldelta.y = 0;
+
+         if(e.deltaX > 0 || e.deltaY < 0){
+             flkty.next();
+         } else if(e.deltaX < 0 || e.deltaY > 0){
+             flkty.previous();
+         }
+     }
+
+     // console.log(window.wheeldelta);
+   });
 
   //add lazysizes
   $('.img-resp').addClass('lazyload');
