@@ -229,13 +229,40 @@ header {
   visibility: visible;
 }
 
-/* ABOUT page */
+/************* ABOUT page ******************************/
 body.about-page{
+  background-color: white;
   color: grey;
 }
 .about-page .more-button{
   background-color: grey
 }
+
+.about-page div.info-box {
+    position: absolute;
+    top: 25%;
+    max-height: 50%;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+div.info-box p {
+   position: relative;
+   margin: 0;
+   text-align: justify;
+   word-wrap: normal;
+
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 40px; /* Firefox */
+    column-gap: 40px;
+    -webkit-column-width: 320px; /* Chrome, Safari, Opera */
+    column-width: 320px;
+}
+
 
 /****************** MOBILE 500px **********************/
 
