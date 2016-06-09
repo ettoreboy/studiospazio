@@ -15,10 +15,6 @@ body{
   overflow: hidden;
 }
 
-h1 {
- cursor: pointer;
-}
-
 h2 {
   margin-bottom: 5px;
 }
@@ -38,6 +34,9 @@ button {
 }
 a, button {
     outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
 .overlay {
@@ -125,10 +124,11 @@ header {
   right: 20%;
 }
 
-.logo {
-  position: relative;
+.logo a {
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 
   font-size: 40px;
   letter-spacing: 1px;
@@ -138,19 +138,13 @@ header {
   max-width: 50%;
 }
 
-/*Animate title on opening
-.logo {
-
-	transition: all 6s ease-out;
-}
-*/
 .more-button {
-  display: inline;
+  display: inline-block;
   position: relative;
   text-align: center;
 
-  width: 15px;
-  height: 15px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: white;
 
@@ -235,79 +229,13 @@ header {
 	visibility: visible;
 }
 
-
-/* Effect 12:  Just me */
-.md-effect-12 .md-content {
-	-webkit-transform: scale(0.8);
-	-moz-transform: scale(0.8);
-	-ms-transform: scale(0.8);
-	transform: scale(0.8);
-	opacity: 0;
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	transition: all 0.3s;
+/* ABOUT page */
+body.about-page{
+ color: grey;
 }
-
-.md-effect-12 .md-content h3,
-.md-effect-12 .md-content {
-	background: transparent;
+.about-page .more-button{
+  background-color: grey
 }
-
-.md-show.md-effect-12 .md-content {
-	-webkit-transform: scale(1);
-	-moz-transform: scale(1);
-	-ms-transform: scale(1);
-	transform: scale(1);
-	opacity: 1;
-}
-
-/* Content styles */
-.md-content {
-	color: black;
-	background: #e74c3c;
-	position: relative;
-	border-radius: 3px;
-	margin: 0 auto;
-}
-
-.md-content h3 {
-	margin: 0;
-	padding: 0.4em;
-	text-align: center;
-	font-size: 2.4em;
-	font-weight: 300;
-	opacity: 0.8;
-	background: rgba(0,0,0,0.1);
-	border-radius: 3px 3px 0 0;
-}
-
-.md-content > div {
-	padding: 15px 40px 30px;
-	margin: 0;
-	font-weight: 300;
-	font-size: 1.15em;
-}
-
-.md-content > div p {
-	margin: 0;
-	padding: 10px 0;
-}
-
-.md-content > div ul {
-	margin: 0;
-	padding: 0 0 30px 20px;
-}
-
-.md-content > div ul li {
-	padding: 5px 0;
-}
-
-.md-content button {
-	display: block;
-	margin: 0 auto;
-	font-size: 0.8em;
-}
-
 
 /****************** MOBILE 480px **********************/
 
