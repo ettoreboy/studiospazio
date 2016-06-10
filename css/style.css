@@ -267,8 +267,8 @@ div.info-box {
 }
 
 
-div.info-box p {
-position: relative;
+div.info-box .paragraph {
+ position: relative;
  display: inline;
  float: left;
  width: 360px;
