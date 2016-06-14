@@ -269,9 +269,9 @@ body.about-page{
 div.info-box .paragraph {
  align-self: flex-start;
 
- width: 400px;
+ width: 360px;
  height: 100%;
- min-width: 400px;
+ min-width: 360px;
 
  text-align: justify;
  word-wrap: normal;
