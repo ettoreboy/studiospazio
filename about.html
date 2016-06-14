@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Studispazio - 2016">
+  <meta name="keywords" content="studispazio design interiors architettura">
+  <meta name="author" content="Ettore Ciprian - cipettaro@gmail.com">
+  <meta name="robots" content="index, nofollow">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>about studiospazio</title>
+
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <!--link href='https://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'-->
+
+</head>
+<body class="about-page">
+    <header class="header">
+      <div class="logo">
+        <h1 id="about_link" class="md-trigger" data-modal="modal-12"><a href="index.html">studiospazio</a></h1>
+      </div>
+      <div class="more-button" title="more information"></div>
+    </header>
+    <div class="info-box">
+      <div class="paragraph">
+        fala is an architecture practice based in porto, led by filipe magalhães, ana luisa soares and ahmed belkhodja. established in 2013, the atelier works with methodic optimism on a wide range of projects, from territories to birdhouses.
+        <br/>  <br/>
+        filipe magalhães (porto, 1987) graduated in architecture at faculdade de arquitectura do porto and fakulteta za arhitekturo in ljubljana; wrote the thesis ‘between the abstract and the figurative’. worked with harry gugger in basel and sanaa in tokyo. visiting professor at bratislava’s faculty of architecture.
+        <br/>  <br/>
+      </div>
+      <div class="paragraph">
+        ana luisa soares (porto, 1988) graduated in architecture at faculdade de arquitectura do porto and tokyo university; wrote the thesis ‘the matter of ideas’. worked with harry gugger in basel and toyo ito in tokyo. visiting professor at bratislava’s faculty of architecture.
+        <br/>  <br/>
+        ahmed belkhodja (lausanne, 1990) graduated in architecture at eth zurich after having also studied in lausanne, gothenburg and singapore; worked with harry gugger in basel, obra architects in new york, and atelier bow-wow in tokyo.
+        <br/>  <br/>
+      </div>
+      <div class="paragraph">
+      <h4>publications</h4>
+      <ul>
+        <li>2016 TRANS, ZWEIFEL, Nr. 28, Spring 2016</li>
+        <li>2015 Stadt, Land, Berg. Neue Architektur in der Schweiz, Niggli Verlag, 2015, ISBN 978-3-7212-0936-5</li>
+        <li>2015 Archithese, Dez-Feb 6.2015</li>
+        <li>2015 The Monocle Guide to Cosy Homes, ISBN 978-3-89955-560-8</li>
+        <li>2015 Holzbau Austria, 5 | 2015</li>
+        <li>2015 Die Welt / ICON, April 2015</li>
+        <li>2015 Solothurner Zeitung, 11. April 2015</li>
+        <li>2015 Go Hasegawa / Conversations with European Architects, LIXIL Publishing, Japan, 2015, ISBN 978-4-86480-016-7 C0052</li>
+        <li>2015 ch.holzbau, 2.2015</li>
+        <li>2015 Architekturpreis Farbe, Struktur, Oberfläche / Nominierung</li>
+        <li>2015 TRANS, LUST, Nr. 26, Spring 2015</li>
+        <li>2015 Das Einfamilien Haus, Nr. 1/2015 Februar/März</li>
+        <li>2015 Bauwelt, 1-2.2015</li>
+        <li>2014 MONOCLE Alpino, Issue 10, Winter Season 2014/15</li>
+        <li>2014 http://monocle.com/radio/shows/section-d/169</li>
+      </ul>
+    </div>
+    <div class="paragraph">
+        <address>
+          rua da fábrica 38; sala 31<br>
+          4050-245 porto; portugal<br>
+        </address>
+        <br/>
+        (+351) 913134612<br>
+        (+351) 918753681<br>
+        (+41) 765740154<br>
+        <a href="mailto:fala.atelier@gmail.com">fala.atelier@gmail.com</a>
+      </div>
+  </div>
+  <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+  <script type="text/javascript" >
+  $(document).ready(function() {
+    $(function() {
+
+      $(".info-box").mousewheel(function(event, delta) {
+
+        this.scrollLeft -= (delta * 30);
+
+        event.preventDefault();
+
+      });
+
+    });
+  });
+  </script>
+</body>
+</html>
