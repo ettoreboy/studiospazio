@@ -159,7 +159,7 @@ var flkty;
 var carousel;
 open_text = false;
 open_plan = false;
-var DELAY = 400, clicks = 0, timer = null;
+var DELAY = 400, clicks = 0;
 
 function updateText (id) {
   var currentId = flkty.selectedElement.id;
@@ -216,33 +216,30 @@ $(document).ready(function() {
   $(".more-button").on("click", function(e){
 
     flkty = Flickity.data( carousel );
-    clicks++;  //count clicks
+    clicks++;
     if(clicks === 1) {
-      timer = setTimeout(function() {
         if(!open_text){
           open_plan = false;
           open_text = true;
         }else{
           open_text = false;
         }
-        //console.log("Click one - Show Image: "+ open_plan +" Show text: "+open_text );
-        clicks = 0;             //after action performed, reset counter
-        toggleText(flkty.selectedElement, open_text, open_plan);
 
-      }, DELAY);
-    } else {
-      clearTimeout(timer);
+    } else if(clicks === 2) {
       if(!open_plan){
         open_text = false;
         open_plan = true;
       }else{
         open_plan = false;
-      }                        //perform double-click action
-      clicks = 0;
-      toggleText(flkty.selectedElement, open_text, open_plan);
+      }
 
+    } else if(clicks > 2){
+      clicks = 0;
+      open_text = false;
+      open_plan = false;
     }
 
+    toggleText(flkty.selectedElement, open_text, open_plan);
   })
   .on("dblclick", function(e){
     e.preventDefault();  //cancel system double-click event
