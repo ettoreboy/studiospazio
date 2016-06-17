@@ -84,6 +84,12 @@ a, button {
 
   text-align: justify;
   word-wrap: normal;
+  user-drag: none;
+  user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
 }
 
 .textgallery div{
@@ -99,9 +105,12 @@ a, button {
   height: auto;
   width: 100%;
 
-  -moz-user-select: none;
-  -webkit-user-select: none;
+  user-drag: none;
   user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
 }
 
 .lazyload,
