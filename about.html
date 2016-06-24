@@ -102,10 +102,14 @@
 
   <script type="text/javascript" >
   $(document).ready(function() {
-    $("div.info-box").smoothDivScroll({
-      mousewheelScrolling: "horizontal",
-      touchScrolling: true
-  });
+    $(function() {
+      var minScrollTime = 100;
+      var now = new Date().getTime();
+          $(".info-box").mousewheel(function(event, delta) {
+              this.scrollLeft -= (delta * 30);
+              event.preventDefault();
+          });
+      });
   });
   </script>
 </body>
