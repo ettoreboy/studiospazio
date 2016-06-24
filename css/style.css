@@ -84,6 +84,12 @@ a, button {
 
   text-align: justify;
   word-wrap: normal;
+  user-drag: none;
+  user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
 }
 
 .textgallery div{
@@ -99,9 +105,12 @@ a, button {
   height: auto;
   width: 100%;
 
-  -moz-user-select: none;
-  -webkit-user-select: none;
+  user-drag: none;
   user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
 }
 
 .lazyload,
@@ -256,7 +265,7 @@ body.about-page{
 
   top: 12%;
   width: 100%;
-  height: 87%;
+  height: 86%;
   overflow-y: hidden;
   overflow-x: visible;
 
@@ -272,6 +281,7 @@ body.about-page{
   */
   padding: 20px;
   margin: 10px;
+
 }
 
 div.info-box .paragraph {
