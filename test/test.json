@@ -1,7 +1,0 @@
-{
-  "projects":[
-    {"n":1, "pics":["../images/test.jpg", "../images/test.jpg", "../images/test.jpg"], "texts":["../test/test.txt"] },
-    {"n":2, "pics":["../images/test.jpg", "../images/test.jpg", "../images/test.jpg"], "texts":["../test/test.txt"] },
-    {"n":3, "pics":[], "texts":["../test/test.txt"] }
-  ]
-}
