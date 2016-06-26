@@ -199,15 +199,13 @@ function toggleText (element, show_text, show_plan) {
   }else if (!show_text) {
     $('div.textgallery div#'+ element.id).fadeOut()
   }
-
 }
 
 $(document).ready(function() {
   carousel = document.querySelector('.gallery');
-  $('.gallery img').each(function(){
+  $('.gallery .img-resp').each(function(){
     lazySizes.loader.unveil(this);
   });
-
 
   $('.gallery').on( 'cellSelect',  function() {
 
