@@ -83,7 +83,7 @@ a, button {
   height: 100%;
   width: auto;
   max-height: 100vh;
-  margin: 0px;
+  margin-left: -5px;
   padding: 0px;
 }
 
