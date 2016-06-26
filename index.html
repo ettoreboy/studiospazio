@@ -147,7 +147,6 @@
   alt="Image not available"/>
   <!--End of the img gallery. Insert new images up here-->
 </div>
-
 </div>
 
 <div class="md-overlay"></div>
@@ -203,9 +202,6 @@ function toggleText (element, show_text, show_plan) {
 
 $(document).ready(function() {
   carousel = document.querySelector('.gallery');
-  $('.gallery .img-resp').each(function(){
-    lazySizes.loader.unveil(this);
-  });
 
   $('.gallery').on( 'cellSelect',  function() {
 
@@ -247,58 +243,6 @@ $(document).ready(function() {
   .on("dblclick", function(e){
     e.preventDefault();  //cancel system double-click event
   });
-
-  // wheeldelta = {x: 0, y: 0};
-  //
-  // //Mouswheel horizontal
-  // $(".gallery").mousewheel(function(e) {
-  //   e.preventDefault();
-  //   var flkty = Flickity.data(this);
-  //
-  //   if (!window.wheeling) {
-  //     // console.log('start wheeling!');
-  //
-  //     if(e.deltaX > 0 || e.deltaY < 0){
-  //       flkty.next();
-  //     } else if(e.deltaX < 0 || e.deltaY > 0){
-  //       flkty.previous();
-  //     }
-  //   }
-  //
-  //   clearTimeout(window.wheeling);
-  //   window.wheeling = setTimeout(function() {
-  //     // console.log('stop wheeling!');
-  //
-  //     delete window.wheeling;
-  //
-  //     // reset wheeldelta
-  //     window.wheeldelta.x = 0;
-  //     window.wheeldelta.y = 0;
-  //   }, 250);
-  //
-  //   window.wheeldelta.x += e.deltaFactor * e.deltaX;
-  //   window.wheeldelta.y += e.deltaFactor * e.deltaY;
-  //   if(window.wheeldelta.x > 500 || window.wheeldelta.y > 500 || window.wheeldelta.x < -500 || window.wheeldelta.y < -500){
-  //     window.wheeldelta.x = 0;
-  //     window.wheeldelta.y = 0;
-  //
-  //     if(e.deltaX > 0 || e.deltaY < 0){
-  //       flkty.next();
-  //     } else if(e.deltaX < 0 || e.deltaY > 0){
-  //       flkty.previous();
-  //     }
-  //   }
-
-  // console.log(window.wheeldelta);
-  // });
-
-  // //add lazysizes
-  //trigger reposition when image is loaded to avoid blank spaces between images
-  // $('.img-resp').on('load',function(){
-  //   flkty = Flickity.data( carousel );
-  //   flkty.reposition();
-  // });
-
 });
 
 var checkScrollSpeed = (function(settings){
