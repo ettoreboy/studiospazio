@@ -264,7 +264,7 @@ var checkScrollSpeed = (function(settings){
 
 $(window).load(function() {
   // Animate loader off screen
-  $(".se-pre-con").fadeOut("slow");
+
   //Start flickity
   jQuery('.gallery').flickity({
     // options
@@ -277,6 +277,7 @@ $(window).load(function() {
     setGallerySize: false
   })
 
+  $(".se-pre-con").fadeOut("slow");
   $('body').mousewheel(function(e, delta) {
     console.log(delta);
   });
