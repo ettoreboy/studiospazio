@@ -151,7 +151,10 @@
 
 <div class="md-overlay"></div>
 <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
-<script type='text/javascript' src='js/flickity.pkgd.min.js'></script>
+<!-- <script type='text/javascript' src='js/flickity.pkgd.min.js'></script> -->
+<!-- Debugging -->
+<script type='text/javascript' src='js/flickity.js'></script>
+
 <script type='text/javascript' src='js/lazysizes.min.js'></script>
 <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
 <!-- <script type="text/javascript" src="js/jquery.kinetic.min.js"></script> -->
@@ -240,7 +243,7 @@ var checkScrollSpeed = (function(settings){
     settings = settings || {};
 
     var lastPos, newPos, timer, delta,
-        delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
+        delay = delay || 50; // in "ms" (higher means lower fidelity )
 
     function clear() {
       lastPos = null;
@@ -261,7 +264,7 @@ var checkScrollSpeed = (function(settings){
     };
 })();
 
-
+vector = {x:0, y:0}
 $(window).load(function() {
   // Animate loader off screen
 
@@ -278,8 +281,20 @@ $(window).load(function() {
   })
 
   $(".se-pre-con").fadeOut("slow");
+
+
   $('body').mousewheel(function(e, delta) {
-    console.log(delta);
+
+    vector.x = e.deltaX * 1000;
+    vector.y = e.deltaY * 1000;
+    console.log(vector.y);
+    flkty = Flickity.data( carousel );
+
+    flkty.dragStart(e, e.pointer);
+    flkty.dragMove(e, e.pointer, delta);
+    flkty.dragEnd(e, e.pointer);
+    vector.x = 0;
+    vector.y = 0;
   });
 
 });
