@@ -266,7 +266,7 @@ var checkScrollSpeed = (function(settings){
 })();
 
 vector = {x:0, y:0}
-var running = false, started = false,
+var running = false,
 run_for = 150;
 
 
@@ -289,8 +289,6 @@ $(window).load(function() {
   var end_counter = function(e) {
     if (running) {
       running = false;
-      started = false;
-      started_at = 0;
       console.log("End drag");
       flkty.dragEnd(e, e.pointer);
       vector.x = 0;
@@ -309,15 +307,20 @@ $(window).load(function() {
 
     }else{
         console.log("Start drag");
-        started = true;
         running = true;
         flkty.dragStart(e, e.pointer);
-        setTimeout(end_counter(e), run_for);
+        setTimeout(function(e) {
+          if (running) {
+            running = false;
+            console.log("End drag");
+            flkty.dragEnd(e, e.pointer);
+            vector.x = 0;
+            vector.y = 0;
+          }
+        }, run_for);
     }
   });
-
 });
-
 
 </script>
 <noscript>
