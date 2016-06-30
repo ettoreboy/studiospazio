@@ -239,35 +239,40 @@ $(document).ready(function() {
   });
 });
 
+
 var checkScrollSpeed = (function(settings){
-    settings = settings || {};
+  settings = settings || {};
 
-    var lastPos, newPos, timer, delta,
-        delay = delay || 50; // in "ms" (higher means lower fidelity )
+  var lastPos, newPos, timer, delta,
+  delay = delay || 50; // in "ms" (higher means lower fidelity )
 
-    function clear() {
-      lastPos = null;
-      delta = 0;
+  function clear() {
+    lastPos = null;
+    delta = 0;
+  }
+
+  clear();
+
+  return function(){
+    newPos = window.scrollY;
+    if ( lastPos != null ){ // && newPos < maxScroll
+      delta = newPos -  lastPos;
     }
-
-    clear();
-
-    return function(){
-      newPos = window.scrollY;
-      if ( lastPos != null ){ // && newPos < maxScroll
-        delta = newPos -  lastPos;
-      }
-      lastPos = newPos;
-      clearTimeout(timer);
-      timer = setTimeout(clear, delay);
-      return delta;
-    };
+    lastPos = newPos;
+    clearTimeout(timer);
+    timer = setTimeout(clear, delay);
+    return delta;
+  };
 })();
 
 vector = {x:0, y:0}
+var running = false, started = false,
+run_for = 150;
+
+
 $(window).load(function() {
   // Animate loader off screen
-
+  $(".se-pre-con").fadeOut("slow");
   //Start flickity
   jQuery('.gallery').flickity({
     // options
@@ -280,21 +285,35 @@ $(window).load(function() {
     setGallerySize: false
   })
 
-  $(".se-pre-con").fadeOut("slow");
-
-
+  flkty = Flickity.data( carousel );
+  var end_counter = function(e) {
+    if (running) {
+      running = false;
+      started = false;
+      started_at = 0;
+      console.log("End drag");
+      flkty.dragEnd(e, e.pointer);
+      vector.x = 0;
+      vector.y = 0;
+    }
+  };
   $('body').mousewheel(function(e, delta) {
+    if (running) {
+      vector.x += e.deltaY * 80;
+      //horizontal scrollers, i.e. apple swipe
+      if(e.deltaX !== 0){
+        vector.x += e.deltaX * 100;
+      }
+      console.log("Dragging "+ vector.x);
+      flkty.dragMove(e, e.pointer, vector);
 
-    vector.x = e.deltaX * 1000;
-    vector.y = e.deltaY * 1000;
-    console.log(vector.y);
-    flkty = Flickity.data( carousel );
-
-    flkty.dragStart(e, e.pointer);
-    flkty.dragMove(e, e.pointer, delta);
-    flkty.dragEnd(e, e.pointer);
-    vector.x = 0;
-    vector.y = 0;
+    }else{
+        console.log("Start drag");
+        started = true;
+        running = true;
+        flkty.dragStart(e, e.pointer);
+        setTimeout(end_counter(e), run_for);
+    }
   });
 
 });

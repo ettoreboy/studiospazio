@@ -3559,6 +3559,9 @@ Flickity.prototype.dragMove = function( event, pointer, moveVector ) {
   this.dragX = dragX;
 
   this.dragMoveTime = new Date();
+  console.log("vector " + JSON.stringify(moveVector))
+  console.log("drag " + JSON.stringify(dragX))
+
   this.dispatchEvent( 'dragMove', event, [ pointer, moveVector ] );
 };
 
@@ -3568,7 +3571,6 @@ Flickity.prototype.dragEnd = function( event, pointer ) {
   }
   // set selectedIndex based on where flick will end up
   var index = this.dragEndRestingSelect();
-
   if ( this.options.freeScroll && !this.options.wrapAround ) {
     // if free-scroll & not wrap around
     // do not free-scroll if going outside of bounding cells
