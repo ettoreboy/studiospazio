@@ -3537,6 +3537,7 @@ Flickity.prototype.pointerDone = function() {
 Flickity.prototype.dragStart = function( event, pointer ) {
   this.dragStartPosition = this.x;
   this.startAnimation();
+  console.log("START drag");
   this.dispatchEvent( 'dragStart', event, [ pointer ] );
 };
 
@@ -3561,6 +3562,7 @@ Flickity.prototype.dragMove = function( event, pointer, moveVector ) {
   this.dragMoveTime = new Date();
   console.log("vector " + JSON.stringify(moveVector))
   console.log("drag " + JSON.stringify(dragX))
+  console.log("pointer " + JSON.stringify(pointer))
 
   this.dispatchEvent( 'dragMove', event, [ pointer, moveVector ] );
 };
@@ -3569,6 +3571,7 @@ Flickity.prototype.dragEnd = function( event, pointer ) {
   if ( this.options.freeScroll ) {
     this.isFreeScrolling = true;
   }
+  console.log("END drag");
   // set selectedIndex based on where flick will end up
   var index = this.dragEndRestingSelect();
   if ( this.options.freeScroll && !this.options.wrapAround ) {

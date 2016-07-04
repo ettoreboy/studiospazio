@@ -113,10 +113,13 @@ a, button {
   position: absolute;
   display: none;
   z-index: 20;
-  margin: auto;
+  margin: 0px;
   vertical-align: middle;
-  height: auto;
-  width: 100%;
+	top: 10%;
+	left: 50%;
+	transform: translate(-50%, 0%);
+  height: 65vh;
+  width: auto;
 
   user-drag: none;
   user-select: none;
