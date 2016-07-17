@@ -116,8 +116,9 @@ a, button {
 	top: 10%;
 	left: 50%;
 	transform: translate(-50%, 0%);
-  height: 65vh;
+  height: 50vh;
   width: auto;
+	max-width: 90vw;
 
   user-drag: none;
   user-select: none;

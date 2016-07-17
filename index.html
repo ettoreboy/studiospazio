@@ -196,10 +196,10 @@ function toggleText (element, show_text, show_plan) {
 $(document).ready(function() {
   carousel = document.querySelector('.gallery');
 
-  $('.gallery').on( 'cellSelect',  function() {
+  $('.gallery').on('select.flickity',  function() {
 
     flkty = Flickity.data( carousel );
-    // console.log( 'Flickity select ' + flkty.selectedIndex + " Element id: "+ flkty.selectedElement.id);
+    console.log( 'Flickity select ' + flkty.selectedIndex + " Element id: "+ flkty.selectedElement.id);
     $('div.textgallery > *').each(function(element){
       updateText(this.id);
     });
