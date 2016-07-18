@@ -57,7 +57,7 @@
       <div class="more-button" title="more information"></div>
     </header>
 
-    <div class="text-container" draggable="false">
+    <div class="text-container" >
       <div id="textgallery" class="textgallery">
 
         <div id="project1">
@@ -70,7 +70,7 @@
           Offendit salutandi his eu, oblique laoreet salutatus vix ex, id nec dico voluptatibus. Nibh temporibus nec at. Est an quod omnis discere, per cu adipisci abhorreant signiferumque, cu usu facilisi.
         </p>
       </div>
-      <img id="project1" class="overlay-img" alt="Image not available" src="projects/1_GarageSuzzara/Garage_plan.png" draggable="false">
+      <img id="project1" class="overlay-img" alt="Image not available" src="projects/1_GarageSuzzara/Garage_plan_cropped.png" draggable="false">
       <div id="project2">
         <h2>House Atelier, Nuglar, Switzerland</h2>
         <h3>Direct commission, 2016</h3>
@@ -78,7 +78,7 @@
         The church is based on a square floor plan and stands on a small artificial hill. We placed four spaces towards each direction in order to establish a relation with the surrounding environment; the portico faces the city, the chapel faces the garden, the utility space faces the access street and the youth room faces the park. The lateral spaces are arranged in a spiral form and establish a church without any strong direction. Furthermore, the lateral spaces and the central space are separated by inclined walls, which establish a complementary relation between them. Without being directly connected to the exterior, the existence of the exterior environment can be sensed from the interior space of the church. The central space posses both the “limited“ and “expanding” space by the means of the lower straight walls and the higher inclined walls above the chest; during the celebration, we can experience the transition of these two spaces while sitting and standing.
       </p>
     </div>
-    <img id="project2" class="overlay-img" alt="Image not available" src="projects/2_HouseNuglar/Nuglar_plan.png" draggable="false">
+    <img id="project2" class="overlay-img" alt="Image not available" src="projects/2_HouseNuglar/Nuglar_plan_cropped.png" draggable="false">
     <div id="project3">
       <h2>﻿Garage Atelier, Suzzara, Italy
         Direct commission, 2016</h2>
@@ -98,7 +98,7 @@
   <img class="img-resp lazyload" id="project1"
   src="projects/1_GarageSuzzara/Garage_1.jpeg"
   data-sizes="auto"
-  data-srcset="projects/1_GarageSuzzara/Garage_1.jpeg 780w, projects/1_GarageSuzzara/768_Garage_1.jpeg 1000w, projects/1_GarageSuzzara/1200_Garage_1.jpeg 1400w"
+  data-srcset="projects/1_GarageSuzzara/Garage_1.jpeg 1000w, projects/1_GarageSuzzara/768_Garage_1.jpeg 1200w, projects/1_GarageSuzzara/1200_Garage_1.jpeg 2000w"
   alt="Image not available"/>
   <img class="img-resp lazyload" id="project1"
   src="projects/1_GarageSuzzara/Garage_2.jpeg"
@@ -149,19 +149,21 @@
 </div>
 </div>
 
-<div class="md-overlay"></div>
 <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
-<script type='text/javascript' src='js/flickity.pkgd.min.js'></script>
 <script type='text/javascript' src='js/lazysizes.min.js'></script>
-<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
-<!-- <script type="text/javascript" src="js/jquery.kinetic.min.js"></script> -->
+<script type='text/javascript' src='js/flickity.pkgd.min.js'></script>
+<!-- Debugging -->
+<!-- <script type='text/javascript' src='js/flickity.js'></script> -->
+
+
+<!-- <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script> -->
 
 <script type="text/javascript" >
 var flkty;
 var totalImg;
 open_text = false;
 open_plan = false;
-var DELAY = 400, clicks = 0;
+var clicks = 0;
 
 function updateText (id) {
   var currentId = flkty.selectedElement.id;
@@ -194,7 +196,7 @@ function toggleText (element, show_text, show_plan) {
 $(document).ready(function() {
   carousel = document.querySelector('.gallery');
 
-  $('.gallery').on( 'cellSelect',  function() {
+  $('.gallery').on('select.flickity',  function() {
 
     flkty = Flickity.data( carousel );
     console.log( 'Flickity select ' + flkty.selectedIndex + " Element id: "+ flkty.selectedElement.id);
@@ -234,38 +236,17 @@ $(document).ready(function() {
   .on("dblclick", function(e){
     e.preventDefault();  //cancel system double-click event
   });
+
+
 });
 
-var checkScrollSpeed = (function(settings){
-    settings = settings || {};
 
-    var lastPos, newPos, timer, delta,
-        delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
-
-    function clear() {
-      lastPos = null;
-      delta = 0;
-    }
-
-    clear();
-
-    return function(){
-      newPos = window.scrollY;
-      if ( lastPos != null ){ // && newPos < maxScroll
-        delta = newPos -  lastPos;
-      }
-      lastPos = newPos;
-      clearTimeout(timer);
-      timer = setTimeout(clear, delay);
-      return delta;
-    };
-})();
+// vector = {x:0, y:0}
+// var running = false,
+// run_for = 150;
 
 
 $(window).load(function() {
-  // Animate loader off screen
-  $(".se-pre-con").fadeOut("slow");
-  //Start flickity
   jQuery('.gallery').flickity({
     // options
     freeScroll: true,
@@ -274,15 +255,39 @@ $(window).load(function() {
     pageDots: false,
     resize: true,
     initialIndex: 5,
-    setGallerySize: false
+    setGallerySize: false,
+    imagesLoaded: true
   })
+  // Animate loader off screen
+  $(".se-pre-con").fadeOut("slow");
 
-  $('body').mousewheel(function(e, delta) {
-    console.log(delta);
-  });
 
+  // flkty = Flickity.data( carousel );
+  // $('body').mousewheel(function(e, delta) {
+  //   if (running) {
+  //     vector.x += e.deltaY * 50;
+  //     //horizontal scrollers, i.e. apple swipe
+  //     if(e.deltaX !== 0){
+  //       vector.x += e.deltaX * 50;
+  //     }
+  //     flkty.dragMove(e, e.pointer, vector);
+  //
+  //   }else{
+  //       running = true;
+  //
+  //       flkty.dragStart(e, e.pointer);
+  //       setTimeout(function() {
+  //         if (running) {
+  //           running = false;
+  //
+  //           flkty.dragEnd(e, e.pointer);
+  //           vector.x = 0;
+  //           vector.y = 0;
+  //         }
+  //       }, run_for);
+  //   }
+  // });
 });
-
 
 </script>
 <noscript>
