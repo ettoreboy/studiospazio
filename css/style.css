@@ -11,7 +11,10 @@ no-js #loader { display: none;  }
   color: white;
 }
 
-* { box-sizing: border-box; }
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 body{
   position: absolute;
@@ -72,19 +75,20 @@ a, button {
   position: relative;
   height: 100vh;
   max-height: 100vh;
+	width: auto;
   white-space: nowrap;
 }
 
-.carousel-cell {
+.gallery-cell {
   height: 100%;
+	width: auto;
 }
 
 .img-resp{
-  height: 100%;
   width: auto;
-  max-height: 100vh;
   margin-left: -5px;
   padding: 0px;
+	height: 100%;
 }
 
 .textgallery{
@@ -310,4 +314,11 @@ address {
 	  min-width: 320px;
 	}
 
+}
+
+/** lazysizes fix **/
+img[data-sizes="auto"] { display: block;}
+.lazyload,
+.lazyloading {
+    min-height: 200px;
 }
