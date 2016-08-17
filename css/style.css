@@ -101,10 +101,7 @@ a, button {
 
   text-align: justify;
   word-wrap: normal;
-  user-select: none;
--moz-user-select: none;
--webkit-user-select: none;
--ms-user-select: none;
+  
 }
 
 .textgallery div{
