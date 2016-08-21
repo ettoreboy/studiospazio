@@ -296,9 +296,7 @@
 <script type='text/javascript' src='js/flickity.pkgd.min.js'></script>
 <!-- Debugging -->
 <!-- <script type='text/javascript' src='js/flickity.js'></script> -->
-
-
-<!-- <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script> -->
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
 
 <script type="text/javascript" >
 
@@ -380,13 +378,23 @@ $(document).ready(function() {
   });
 
 lazySizes.autoSizer.checkElems();
+
+//support mousewheel
+$('.gallery').mousewheel(function(e) {
+    e.preventDefault();
+    var flkty = Flickity.data(this);
+
+    if (!window.wheeling) {
+        // console.log('start wheeling!');
+
+        if(e.deltaX > 0 || e.deltaY < 0){
+            flkty.next();
+        } else if(e.deltaX < 0 || e.deltaY > 0){
+            flkty.previous();
+        }
+    }
+ });
 });
-
-
-// vector = {x:0, y:0}
-// var running = false,
-// run_for = 150;
-
 
 $(window).load(function() {
   jQuery('.gallery').flickity({
@@ -408,35 +416,9 @@ $(window).load(function() {
 
   $(".img-resp").addClass("lazyload");
 
-
   // Animate loader off screen
   $(".se-pre-con").fadeOut("slow");
 
-  // flkty = Flickity.data( carousel );
-  // $('body').mousewheel(function(e, delta) {
-  //   if (running) {
-  //     vector.x += e.deltaY * 50;
-  //     //horizontal scrollers, i.e. apple swipe
-  //     if(e.deltaX !== 0){
-  //       vector.x += e.deltaX * 50;
-  //     }
-  //     flkty.dragMove(e, e.pointer, vector);
-  //
-  //   }else{
-  //       running = true;
-  //
-  //       flkty.dragStart(e, e.pointer);
-  //       setTimeout(function() {
-  //         if (running) {
-  //           running = false;
-  //
-  //           flkty.dragEnd(e, e.pointer);
-  //           vector.x = 0;
-  //           vector.y = 0;
-  //         }
-  //       }, run_for);
-  //   }
-  // });
 });
 
 </script>
