@@ -66,7 +66,7 @@
       </div>
       <div class="more-button" title="more information"></div>
     </header>
-
+    <input type="number" id="setting" width="100px" step="0.01" style="position:absolute;z-index:1000;left:10px;" onchange="js" placeholder="Frizione Slide"></input>
     <div class="text-container" >
       <div id="textgallery" class="textgallery">
 
@@ -405,6 +405,7 @@ $('.gallery').mousewheel(function(e) {
         }
     }
  });
+
 });
 
 $(window).load(function() {
@@ -431,6 +432,11 @@ $(window).load(function() {
 
   // Animate loader off screen
   $(".se-pre-con").fadeOut("slow");
+
+  //setting tweaks
+  var flickity = Flickity.data(document.querySelector('.gallery'));
+  console.log(flickity.options.friction);
+   $('#setting').val(flickity.options.friction);
 
 });
 
