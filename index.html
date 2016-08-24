@@ -66,7 +66,10 @@
       </div>
       <div class="more-button" title="more information"></div>
     </header>
-    <input type="number" id="setting" width="100px" step="0.01" style="position:absolute;z-index:1000;left:10px;" onchange="js" placeholder="Frizione Slide"></input>
+
+    <label style="position:absolute;z-index:1000;left:200px;">Frizione da 0.1 a 1.0 (default 0.28) </label><input type="number" id="set-frizione" width="100px" step="0.01" style="position:absolute;z-index:1000;left:10px;" onchange="changeSliderSetting('friction', $(this));" placeholder="Frizione Slide"></input>
+    <label style="position:absolute;z-index:1000;left:200px;top:20px">Attrazione da 0.01 a 0.050 (default 0.025)</label> <input type="number" id="set-attr" width="100px" step="0.01" style="position:absolute;z-index:1000;left:10px;margin-top:25px;" onchange="changeSliderSetting('selectedAttraction', $(this));" placeholder="Attrazione Slide"></input>
+
     <div class="text-container" >
       <div id="textgallery" class="textgallery">
 
@@ -305,6 +308,12 @@ open_text = false;
 open_plan = false;
 var clicks = 0;
 
+function changeSliderSetting(optionName, field){
+ flkty = Flickity.data( carousel );
+ flkty.options[optionName] = field.value;
+ flkty = Flickity.data( carousel );
+}
+
 function updateText (id) {
   var currentId = flkty.selectedElement.id;
   if (flkty.selectedIndex >= 0 && currentId !== id) {
@@ -434,9 +443,8 @@ $(window).load(function() {
   $(".se-pre-con").fadeOut("slow");
 
   //setting tweaks
-  var flickity = Flickity.data(document.querySelector('.gallery'));
-  console.log(flickity.options.friction);
-   $('#setting').val(flickity.options.friction);
+   $('#set-frizione').val(flkty.options.friction);
+   $('#set-attr').val(flkty.options.selectedAttraction);
 
 });
 
