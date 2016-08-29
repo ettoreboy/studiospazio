@@ -405,6 +405,7 @@ $('.gallery').mousewheel(function(e) {
         }
     }
  });
+
 });
 
 $(window).load(function() {
@@ -418,19 +419,19 @@ $(window).load(function() {
     initialIndex: 0,
     setGallerySize: false,
     imagesLoaded: true,
-    selectedAttraction: 0.012,
-    friction: 0.24
+    selectedAttraction: 0.014,
+    friction: 0.45
   });
+  $(".img-resp").addClass("lazyload");
 
   $(document).on('lazybeforesizes', function(e){
     //use width of parent node instead of the image width itself
     e.detail.width = $('.flickity-viewport').width();
   });
 
-  $(".img-resp").addClass("lazyload");
-
   // Animate loader off screen
   $(".se-pre-con").fadeOut("slow");
+
 
 });
 
