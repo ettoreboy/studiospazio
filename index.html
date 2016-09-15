@@ -88,21 +88,30 @@
       <h2>Kazunari Sakamoto. Lecture edited by Tao Baerlocher and Samuele Squassabia, Quart Verlag, 2015</h2>
       <h3>BOOK INFO (http://www.quart.ch/einzelausgaben-de.php?nID=576)</h3>
         <p/>
-        This publication arises from a lecture that Kazunari Sakamoto held at the Accademia di Architettura di Mendrisio. With the intention to present the content in its original form, we transcribed the lecture directly on paper in this book. Sakamoto opened a discourse concerning the question of a new relationship between architecture and reality, which is not yet concluded. We believe that this question is of great importance in today’s discussion. Throughout his work, he explores how architecture can include reality and yet be released from its restrictions at the same time. Within the fragmentation of our world, he strives to establish new connections, showing a possibility for an evolution in which architecture will avoid isolation and achieve autonomy. 
+        This publication arises from a lecture that Kazunari Sakamoto held at the Accademia di Architettura di Mendrisio. With the intention to present the content in its original form, we transcribed the lecture directly on paper in this book. Sakamoto opened a discourse concerning the question of a new relationship between architecture and reality, which is not yet concluded. We believe that this question is of great importance in today’s discussion. Throughout his work, he explores how architecture can include reality and yet be released from its restrictions at the same time. Within the fragmentation of our world, he strives to establish new connections, showing a possibility for an evolution in which architecture will avoid isolation and achieve autonomy.
       </p>
     </div>
-    <div id="project3">
-      <h2>﻿Garage Atelier, Suzzara, Italy
-        Direct commission, 2016</h2>
+    <div id="project4">
+      <h2>Barn renovation, Nuglar, Switzerland, 2015-direct commission, ongoing</h2>
         <p/>
-        An iusto delenit salutandi pri. Amet virtute inermis cu vel. Has ornatus necessitatibus eu. Mea no enim delenit voluptua, at duo quidam detraxit. Ne exerci intellegam vim. Has minim posidonium id, vis ei mazim dolorum indoctum.
-        Te prima meliore nam, aliquam minimum in nam, noluisse dissentiunt vel ex. Soluta bonorum mediocritatem eam an. Eu nibh probatus vix, sea at inermis quaerendum. Ei ius possit discere indoctum, sit congue patrioque ei. Fuisset ponderum his et.
-        Eum suas deleniti ne, per cu latine lucilius. In ferri scriptorem deterruisset per, sea eu minim deleniti petentium. Eam suas partem platonem ei, porro debitis accusam ea sea, pri iusto tantas impedit ei. Probo sensibus an eos. Dico patrioque forensibus in est, eum et alia populo aeterno.
-        Offendit salutandi his eu, oblique laoreet salutatus vix ex, id nec dico voluptatibus. Nibh temporibus nec at. Est an quod omnis discere, per cu adipisci abhorreant signiferumque, cu usu facilisi.
+        This is a renovation of an old barn located in the village of Nuglar, which will host a café, an atelier and an exhibition space. We have maintained the external volume and modified both the interior space and the expression according to the new program – from a functional to a semi-public building. We have created three new spaces with identical surface and yet different qualities. In fact, the long diagonal strip window, together with the tilted wall, relates to the hilly environment of the region and connects each space with the heterogeneous external environment. The treatment of the inner walls and ceiling as exterior surfaces conveys the impression of being inside and yet outside, re-establishing the airiness of the old barn.
       </p>
     </div>
-    <img id="project3" class="overlay-img" alt="Image not available" src="projects/2/2_Studiospazio_Pegognaga_Plan.png" draggable="false">
-
+    <img id="project4" class="overlay-img" alt="Image not available" src="projects/4/4_Studiospazio_Nuglar_Plan.png" draggable="false">
+    <div id="project6">
+      <h2>Primary School and Kindergarten, Vignettaz, Switzerland, 2016 competition, 2. Prize, with AAPPB</h2>
+        <p/>
+      The primary school is located within a fragmented school campus and defines the border between the school courtyard and the adjacent park. The curved building encloses the courtyard and expands towards the park. The new school adopts the existing typology of the surrounding buildings, however through the curve it produces a new impact. In facts, the internal corridor connects the surrounding environments and allows the perception of the campus as a whole. The structural pitch of the filigree wooden column  -of approx. two metres- integrates the scale of the furniture allowing to physically perceive the scale of the campus.
+      </p>
+    </div>
+    <img id="project6" class="overlay-img" alt="Image not available" src="projects/5/5_Studiospazio_Vignettaz_Plan.png" draggable="false">
+    <div id="project5">
+      <h2>Workshop-garage, Suzzara, Italy, 2015-16 direct commission, built, photos: Stefano Graziani, Giorgio de Vecchi</h2>
+        <p/>
+    The small building – located in the garden of a semi-detached house – hosts two parking lots and a workshop. It consists of four large massive wooden panels, which contrast in size with the small scale of the building. The gabled roof is stacked perpendicularly on top of the walls with the minimum surface of contact – only one point. This composition allows the continuity of the garden to be perceived in all the directions. Despite the big presence, the building becomes a device to connect the neighbouring spaces. The eight thin metal pillars inside the workshop stiffen the structure; however, they are perceived as a piece of furniture due to their proportions.
+      </p>
+    </div>
+    <img id="project5" class="overlay-img" alt="Image not available" src="projects/6/6_Studiospazio_Suzzara_Plan.png" draggable="false">
 
     <!--End of the text gallery. Insert new project up here-->
   </div>
@@ -413,6 +422,7 @@ $('.gallery').mousewheel(function(e) {
 });
 
 $(window).load(function() {
+  var totalImg = $(".gallery-cell").length
 
   jQuery('.gallery').flickity({
     // options
@@ -421,7 +431,7 @@ $(window).load(function() {
     prevNextButtons: false,
     pageDots: false,
     resize: true,
-    initialIndex: 0,
+    initialIndex: parseInt(totalImg - 1),
     setGallerySize: false,
     imagesLoaded: true,
     selectedAttraction: 0.018,
