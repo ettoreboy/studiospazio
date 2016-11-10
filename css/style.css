@@ -16,10 +16,19 @@ no-js #loader { display: none;  }
   box-sizing: border-box;
 }
 
+/*
+ FONT
+*/
+.AvenirLTStd-Heavy {
+	font-family: AvenirLTStd-Heavy;
+	font-weight: normal;
+	font-style: normal;
+}
+
 body{
   position: absolute;
-  /*font-family: 'Nunito', sans-serif;*/
-  font-family: 'Montserrat', sans-serif;
+  
+  font-family: 'AvenirLTStd-Heavy', sans-serif;
   color: white;
   font-size: 16px;
   font-weight: 300;
