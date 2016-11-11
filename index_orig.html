@@ -331,13 +331,13 @@
 
 </div>
 
-<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+<script type="text/javascript" src="js/jquery3.min.js"></script>
+
 <script type='text/javascript' src='js/lazysizes.min.js'></script>
 <script type='text/javascript' src='js/flickity.pkgd.min.js'></script>
 <!-- Debugging -->
 <!-- <script type='text/javascript' src='js/flickity.js'></script> -->
 <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
-
 <script type="text/javascript" >
 
 var flkty;
@@ -447,7 +447,7 @@ $('.gallery').mousewheel(function(e) {
 
 });
 
-$(window).load(function() {
+$(window).on('load', function() {
   var totalImg = $(".gallery-cell").length
 
   jQuery('.gallery').flickity({
