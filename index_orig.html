@@ -110,7 +110,7 @@
     <img id="project2" class="overlay-img" alt="Image not available" src="projects/2/2_Studiospazio_Pegognaga_Plan.png" draggable="false">
     <div id="project3">
       <h2>Kazunari Sakamoto. Lecture edited by Tao Baerlocher and Samuele Squassabia, Quart Verlag, 2015</h2>
-      <h3>BOOK INFO (http://www.quart.ch/einzelausgaben-de.php?nID=576)</h3>
+      <h2>BOOK INFO (http://www.quart.ch/einzelausgaben-de.php?nID=576)</h2>
         <p/>
         This publication arises from a lecture that Kazunari Sakamoto held at the Accademia di Architettura di Mendrisio. With the intention to present the content in its original form, we transcribed the lecture directly on paper in this book. Sakamoto opened a discourse concerning the question of a new relationship between architecture and reality, which is not yet concluded. We believe that this question is of great importance in today’s discussion. Throughout his work, he explores how architecture can include reality and yet be released from its restrictions at the same time. Within the fragmentation of our world, he strives to establish new connections, showing a possibility for an evolution in which architecture will avoid isolation and achieve autonomy.
       </p>
@@ -418,31 +418,21 @@ $(document).ready(function() {
   });
 
 lazySizes.autoSizer.checkElems();
-var isScrolling = false;
 
-$('.gallery').on( 'scroll.flickity', function( event, progress ) {
-  isScrolling = true;
-  //console.log( 'Flickity scrolled ' + progress * 100 + '%' )
-})
+//support swipe
+var scrollFactor = 3;
 
-$('.gallery').on( 'settle.flickity', function() {
-  isScrolling = false;
-  //console.log( 'Flickity settled at ' + flkty.selectedIndex )
-})
-
-//support mousewheel
 $('.gallery').mousewheel(function(e) {
     e.preventDefault();
     var flkty = Flickity.data(this);
-
-    if (!isScrolling) {
         // console.log('start wheeling!');
-        if(e.deltaX < 0 || e.deltaY > 0){
+        if(e.deltaX < (-1 * scrollFactor) || e.deltaY > scrollFactor){
             flkty.previous();
-        } else if(e.deltaX > 0 || e.deltaY < 0){
+        } else if(e.deltaX > scrollFactor || e.deltaY < (-1 * scrollFactor)){
             flkty.next();
         }
-    }
+        console.log(e.deltaX);
+        console.log(e.deltaY);
  });
 
 });
