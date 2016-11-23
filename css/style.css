@@ -21,9 +21,9 @@ no-js #loader { display: none;  }
 */
 .AvenirLTStd-Heavy {
 	font-family: AvenirLTStd-Heavy;
-	font-weight: normal;
-	font-style: normal;
-	-webkit-font-smoothing: subpixel-antialiased;
+	font-weight: normal !important;
+	font-style: normal !important;
+	-webkit-font-smoothing: subpixel-antialiased !important;
 }
 
 body{
@@ -40,7 +40,6 @@ body{
   overflow: hidden;
 
 	-webkit-font-smoothing: subpixel-antialiased;
-	transform: translate3d( 0, 0, 0);
 }
 
 h2 {
@@ -147,11 +146,11 @@ a, button {
 }
 .lazyloaded {
   opacity: 1;
-	-moz-transition: opacity 0.03s ease-in-out;
-  -webkit-transition: opacity 0.03s ease-in-out;
-  -o-transition: opacity 0.03s ease-in-out;
-  -ms-transition: opacity 0.03s ease-in-out;
-  transition: opacity 0.03s ease-in-out;
+	-moz-transition: opacity 1s ease-in-out;
+  -webkit-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 
 

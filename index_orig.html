@@ -420,7 +420,7 @@ $(document).ready(function() {
 lazySizes.autoSizer.checkElems();
 
 //support swipe
-var scrollFactor = 3;
+var scrollFactor = 5;
 
 $('.gallery').mousewheel(function(e) {
     e.preventDefault();
@@ -434,6 +434,13 @@ $('.gallery').mousewheel(function(e) {
         console.log(e.deltaX);
         console.log(e.deltaY);
  });
+
+ //start lazyload
+  $(".img-resp").addClass("lazyload");
+  $(document).on('lazybeforesizes', function(e){
+    //use width of parent node instead of the image width itself
+    e.detail.width = $('.flickity-viewport').width();
+  });
 
 });
 
@@ -451,18 +458,11 @@ $(window).on('load', function() {
     setGallerySize: false,
     imagesLoaded: true,
     selectedAttraction: 0.010,
-    friction: 0.40
-  });
-
- //start lazyload
-  $(".img-resp").addClass("lazyload");
-  $(document).on('lazybeforesizes', function(e){
-    //use width of parent node instead of the image width itself
-    e.detail.width = $('.flickity-viewport').width();
+    friction: 0.40,
+    freeScrollFriction: 0.09
   });
 
   $(".se-pre-con").fadeOut("slow");
-
 
 });
 
