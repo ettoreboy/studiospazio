@@ -106,11 +106,9 @@ a, button {
   position: absolute;
   margin: 0px;
   z-index: 10;
-	top: 50%;
   transform: translateY(-50%);
   left: 20%;
   right: 20%;
-
   text-align: justify;
   word-wrap: normal;
 
@@ -308,7 +306,6 @@ address {
   header, div.textgallery  {
     left: 6%;
     right: 6%;
-		bottom: 1%;
   }
 
   .textgallery div{
