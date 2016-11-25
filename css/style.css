@@ -59,6 +59,7 @@ button {
   margin: 3px 2px;
   border-radius: 2px;
 }
+
 a, button {
   outline: none;
   cursor: pointer;
@@ -106,9 +107,11 @@ a, button {
   position: absolute;
   margin: 0px;
   z-index: 10;
+	top: 50%;
   transform: translateY(-50%);
   left: 20%;
   right: 20%;
+
   text-align: justify;
   word-wrap: normal;
 
@@ -308,17 +311,17 @@ address {
     right: 6%;
   }
 
-  .textgallery div{
+  .textgallery{
     overflow-y: auto;
+	  top: 54%;
   }
 
   .more-button {
     width: 12px;
     height: 12px;
-
   }
 
-	.logo{
+	.logo a{
 		line-height: normal;
 		margin-bottom: 0px;
 	}
