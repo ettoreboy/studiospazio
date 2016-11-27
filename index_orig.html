@@ -417,28 +417,27 @@ $(document).ready(function() {
     e.preventDefault();  //cancel system double-click event
   });
 
-  //support swipe
-  var scrollFactor = 5;
-
-  $('.gallery').mousewheel(function(e) {
-    e.preventDefault();
+  $('.gallery').on('mousewheel', { mousewheel: { debounce: {  preventDefault: true, leading: true, trailing: false, delay: 300 } } }, function(event) {
+    event.preventDefault();
     var flkty = Flickity.data(this);
     //normalize for mac
-    var deltaY = e.deltaY
-    var deltaX = e.deltaX
+    var deltaY = event.deltaY
+    var deltaX = event.deltaX
+    var deltaFactor = event.deltaFactor
 
-    if(Math.abs(deltaY)>=40)
-    deltaY/=40;
-    if(Math.abs(deltaX)>=40)
-    deltaX/=40;
+    var directions = {
+    isUp: deltaY > 0,
+    isLeft: deltaX < 0,
+    isDown: deltaY < 0,
+    isRight: deltaX > 0
+  };
 
-    if(deltaX < (-1 * scrollFactor) || deltaY > scrollFactor){
+    if(directions.isLeft){
       flkty.previous();
-    } else if(deltaX > scrollFactor || deltaY < (-1 * scrollFactor)){
+    } else if(directions.isRight){
       flkty.next();
     }
-    //console.log("Y: "+ deltaY);
-    //console.log("X: "+ deltaX);
+    console.log(event.deltaX, event.deltaY, event.deltaFactor, directions.isLeft);
   });
 
   //start lazyload
@@ -474,7 +473,7 @@ $(window).on('load', function() {
 
 </script>
 <noscript>
-  <META HTTP-EQUIV="Refresh" CONTENT="0;URL=Error.html">
-  </noscript>
+<META HTTP-EQUIV="Refresh" CONTENT="0;URL=Error.html">
+</noscript>
 </body>
 </html>

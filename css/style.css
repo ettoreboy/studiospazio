@@ -311,7 +311,7 @@ address {
     right: 6%;
   }
 
-  .textgallery{
+  .textgallery div{
     overflow-y: auto;
 	  top: 54%;
   }
@@ -323,7 +323,7 @@ address {
 
 	.logo a{
 		line-height: normal;
-		margin-bottom: 0px;
+		margin-bottom: 5px;
 	}
 
 	div.info-box .paragraph {
