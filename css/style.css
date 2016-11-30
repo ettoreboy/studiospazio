@@ -126,12 +126,12 @@ a, button {
   display: none;
   z-index: 20;
   margin: 0px;
-	top: 50%;
+	top: 55%;
 	left: 50%;
 	transform: translate(-50%, -50%);
   width: auto;
-	max-height: 70vh;
-	max-width: 90vw;
+	max-height: 65vh;
+	max-width: 48vw;
 
   user-drag: none;
   user-select: none;
@@ -237,12 +237,10 @@ header {
 /************* ABOUT page ******************************/
 body.about-page{
   background-color: white;
-  color: grey;
+  color: black;
   width: 100%;
   position: absolute;
-}
-.about-page .more-button{
-  background-color: grey
+	margin-top: 20px;
 }
 
 .about-page div.info-box {
@@ -255,50 +253,55 @@ body.about-page{
   -webkit-flex-wrap: nowrap; /* Safari 6.1+ */
   flex-wrap: nowrap;
 
-  top: 12%;
+  top: 20%;
   width: 100%;
   height: 86%;
   overflow-y: hidden;
   overflow-x: visible;
-
-
-  /*-webkit-columns: 400px; /* Chrome, Safari, Opera
-  * -moz-columns: 400px;  /* Firefox
-  * columns: 400px;
-  * -webkit-column-gap: 100px; /* Chrome, Safari, Opera
-  * -moz-column-gap: 100px; /* Firefox
-  * column-gap: 100px;
-  * -moz-column-fill: auto; /* Firefox
-  * column-fill: auto;
-  */
-  padding: 20px;
   margin: 10px;
 
 }
 
 div.info-box .paragraph {
 
-  min-width: 380px;
-  text-align: justify;
-  word-wrap: normal;
-
-  padding: 20px;
+  min-width: 480px;
   margin-right: 10em;
-
 	overflow-y: auto;
-	overflow-x:hidden;
+	overflow-x: hidden;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+td {
+	padding-left: 4px;
+}
+
+td:nth-child(1) {
+    width: 20%;
+}
+td:nth-child(2) {
+    width: 80%;
+}
+
+.about-page h4 {
+	margin-bottom: 10px;
 }
 
 div.info-box > .paragraph:first-of-type {
-  margin-left: calc(50vw + -180px + -20px);
+  margin-left: calc(50vw + -150px);
 }
 div.info-box > .paragraph:last-of-type {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 address {
   display: block;
-  font-style: italic;
 }
 
 /****************** MOBILE 500px **********************/
@@ -327,7 +330,12 @@ address {
 	}
 
 	div.info-box .paragraph {
-	  min-width: 320px;
+	  min-width: 300px;
+	}
+
+	.overlay-img {
+		margin-top: 5%;
+		max-width: 90vw;
 	}
 
 }
