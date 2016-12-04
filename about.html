@@ -39,6 +39,9 @@
 
   <link href="css/reset.css" rel="stylesheet" type="text/css">
   <link href="css/style.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="css/vex.css" />
+  <link rel="stylesheet" href="css/vex-theme-os.css" />
   <!--
   /**
   * @license
@@ -75,16 +78,61 @@
   </header>
   <div class="info-box">
     <div class="paragraph">
-      Studiospazio is the architectural practice established in 2014 by <u>Samuele Squassabia</u>, <u>Tao Baerlocher</u> and
-      <u>Eugenio Squassabia</u>. Studiospazio deals with the question of the relationship between architecture and the contemporary reality through projects, competitions, publications and the academic commitment.
+      Studiospazio is the architectural practice established in 2014 by <a class="info-box" id="samuele"><u>Samuele Squassabia</u></a>, <a class="info-box" id="tao"><u>Tao Baerlocher</u></a> and
+      <a class="info-box" id="eugenio"><u>Eugenio Squassabia</u></a>. Studiospazio deals with the question of the relationship between architecture and the contemporary reality through projects, competitions, publications and the academic commitment.
+      <p id="samuele" style="display:none;">
+      Samuele Squassabia
+
+      2016	Local architect for the Italian project “Marble Chapel” by Go Hasegawa & Associates
+      2014 -	Studiospazio
+      2012 - 15	Design tutor, ETH Zurich, with Christian Kerez
+      2012 - 14	Teaching assistant, Accademia di Architettura di Mendrisio, with Go Hasegawa
+      2011 - 12	Teaching assistant, Politecnico di Milano, with 	Federico Bucci and Vittorio Longheu
+      2011	Master Degree, Accademia di Archtiettura di Mendrisio (diploma awarded with honours), with Valerio Olgiati
+      2010	Intern, Go Hasegawa & Associates, Tokyo
+      2008 - 09	Intern, Gigon / Guyer Architekten, Zurich
+      2007	Bachelor Degree, Politecnico di Milano
+      2005	Intern, Renzo Piano Building Workshop, 	Genova
+      1984	Born in Mantova, Italy
+    </p>
+    <p id="eugenio" style="display:none;">
+    Samuele Squassabia
+
+    2016	Local architect for the Italian project “Marble Chapel” by Go Hasegawa & Associates
+    2014 -	Studiospazio
+    2012 - 15	Design tutor, ETH Zurich, with Christian Kerez
+    2012 - 14	Teaching assistant, Accademia di Architettura di Mendrisio, with Go Hasegawa
+    2011 - 12	Teaching assistant, Politecnico di Milano, with 	Federico Bucci and Vittorio Longheu
+    2011	Master Degree, Accademia di Archtiettura di Mendrisio (diploma awarded with honours), with Valerio Olgiati
+    2010	Intern, Go Hasegawa & Associates, Tokyo
+    2008 - 09	Intern, Gigon / Guyer Architekten, Zurich
+    2007	Bachelor Degree, Politecnico di Milano
+    2005	Intern, Renzo Piano Building Workshop, 	Genova
+    1984	Born in Mantova, Italy
+  </p>
+  <p id="tao" style="display:none;">
+  Samuele Squassabia
+
+  2016	Local architect for the Italian project “Marble Chapel” by Go Hasegawa & Associates
+  2014 -	Studiospazio
+  2012 - 15	Design tutor, ETH Zurich, with Christian Kerez
+  2012 - 14	Teaching assistant, Accademia di Architettura di Mendrisio, with Go Hasegawa
+  2011 - 12	Teaching assistant, Politecnico di Milano, with 	Federico Bucci and Vittorio Longheu
+  2011	Master Degree, Accademia di Archtiettura di Mendrisio (diploma awarded with honours), with Valerio Olgiati
+  2010	Intern, Go Hasegawa & Associates, Tokyo
+  2008 - 09	Intern, Gigon / Guyer Architekten, Zurich
+  2007	Bachelor Degree, Politecnico di Milano
+  2005	Intern, Renzo Piano Building Workshop, 	Genova
+  1984	Born in Mantova, Italy
+</p>
       <br/>  <br/>
       <br/>
       <address id="address">
-        <p>Aargauerstrasse 70/27 CH</p><p>8048 Zurich</p>
+        <p>Aargauerstrasse 70/27 CH</p><p>8048 Zurich <br/>Switzerland</p>
       </address>
       <br/>
       <address id="address">
-        <p>Viale Piave 14 IT</p><p> 46100 Mantova</p>
+        <p>Viale Piave 14 IT</p><p> 46100 Mantova <br/>Italy</p>
       </address>
       <br/>
       <br/>
@@ -168,17 +216,22 @@
       </div>
       <script src="js/jquery3.min.js" type="text/javascript"></script>
       <script src="js/jquery.nicescroll.min.js" type="text/javascript"></script>
-
+      <script src="js/vex.combined.min.js"></script>
+      <script>vex.defaultOptions.className = 'vex-theme-plain'</script>
       <script type="text/javascript" >
-      $(document).ready(function() {
-        $(function() {
+    $(document).ready(function() {
           $('.info-box').niceScroll({
             cursorcolor:"rgba(177, 177, 177, 0.74)",
             cursorborder: "white",
             touchbehavior: true
           });
+
+    $('.info-box').click( function(){
+    var msg = $("p.#" + this.id).html();
+    vex.dialog.alert({ unsafeMessage: msg })
+    });
         });
-      });
       </script>
+
     </body>
     </html>

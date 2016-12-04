@@ -42,10 +42,6 @@ body{
 	-webkit-font-smoothing: subpixel-antialiased;
 }
 
-h2 {
-  margin-bottom: 5px;
-}
-
 button {
   border: none;
   padding: 0.6em 1.2em;
@@ -104,15 +100,21 @@ a, button {
 }
 
 .textgallery{
+	--widthA: 100vh;
+  --widthB: calc(var(--widthA) / 16);
+	--widthC: calc(var(--widthB) * 11);
+	--heightA: calc(var(--widthA) / 24);
+	--heightB: calc(var(--heightA) * 7);
+
   position: absolute;
   margin: 0px;
   z-index: 10;
 	top: 50%;
-  transform: translateY(-50%);
-  left: 20%;
-  right: 20%;
-
-  text-align: justify;
+	top: var(--heightB);
+	left: 25%;
+	right: 25%;
+  left: var(--widthC);
+	right: var(--widthC);
   word-wrap: normal;
 
 }
@@ -124,14 +126,20 @@ a, button {
 .overlay-img {
   position: absolute;
   display: none;
+	--widthA: 100vh;
+	--heightA: calc(var(--widthA) / 24);
+	--heightB: calc(var(--heightA) * 3);
+	--heightC: calc(var(--heightA) * 10);
+
   z-index: 20;
   margin: 0px;
-	top: 55%;
+	top: var(--heightB);
 	left: 50%;
 	transform: translate(-50%, -50%);
   width: auto;
-	max-height: 65vh;
-	max-width: 48vw;
+	max-height: 60vh;
+	max-height: var(--heightC);
+	max-width: 50vw;
 
   user-drag: none;
   user-select: none;
