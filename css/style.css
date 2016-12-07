@@ -63,17 +63,6 @@ a, button {
   color: inherit;
 }
 
-.overlay {
-  background: #e9e9e9;
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0.5;
-}
-
 .text-container{
   top: 20%;
   width: 100%;
@@ -126,20 +115,17 @@ a, button {
 .overlay-img {
   position: absolute;
   display: none;
-	--widthA: 100vh;
-	--heightA: calc(var(--widthA) / 24);
+	--baseA: 100vh;
+	--heightA: calc(var(--baseA) / 24);
 	--heightB: calc(var(--heightA) * 3);
-	--heightC: calc(var(--heightA) * 10);
 
   z-index: 20;
-  margin: 0px;
-	top: var(--heightB);
+	margin: 0px;
+	top: calc(var(--heightB));
 	left: 50%;
 	transform: translate(-50%, -50%);
-  width: auto;
-	max-height: 60vh;
-	max-height: var(--heightC);
-	max-width: 50vw;
+	height: auto;
+	max-width: 45vw;
 
   user-drag: none;
   user-select: none;
@@ -271,15 +257,9 @@ body.about-page{
 }
 
 div.info-box .paragraph {
-
   min-width: 500px;
   margin-right: 9em;
 	overflow-y: hidden;
-	-moz-user-select: text;
- -khtml-user-select: text;
- -webkit-user-select: text;
- -ms-user-select: text;
- user-select: text;
 }
 
 .about-page i {
@@ -297,7 +277,6 @@ pre {
 td:nth-child(1) {
     width: 18%;
 }
-
 
 .about-page h4 {
 	margin-bottom: 10px;
@@ -344,7 +323,6 @@ address {
 	}
 
 	.overlay-img {
-		margin-top: 5%;
 		max-width: 90vw;
 	}
 
