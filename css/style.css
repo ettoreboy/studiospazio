@@ -272,8 +272,8 @@ body.about-page{
 
 div.info-box .paragraph {
 
-  min-width: 510px;
-  margin-right: 10em;
+  min-width: 500px;
+  margin-right: 9em;
 	overflow-y: hidden;
 	-moz-user-select: text;
  -khtml-user-select: text;
