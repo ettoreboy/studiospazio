@@ -96,36 +96,36 @@
  <tr><td>      1984</td><td>Born in Mantova, Italy</td></tr>
 </table>
     </div>
-    <p id="eugenio" style="display:none;">
-    Samuele Squassabia
+    <div id="eugenio" style="display:none;">
+    <h4>Eugenio Squassabia</h4>
+    <table>
+<tr><td>2014 - </th><th>Master student, Politecnico di Milano</td></tr>
+ <tr><td>2014 - </td><td>Studiospazio</td></tr>
+ <tr><td>2013 - 14</td><td>Intern, Ciriacidis Lehnerer Architekten, Zurich</td></tr>
+ <tr><td>2013</td><td>Intern, Atelier Scheidegger Keller, Zurich</td></tr>
+ <tr><td>2012</td><td>Intern, Ermes Ponti Cabinetmaker, Mantova</td></tr>
+ <tr><td>2012</td><td>Bachelor Degree, Politecnico di Milano</td></tr>
+ <tr><td>2009</td><td>Intern, Cino Zucchi Architetti, Milano</td><td>&nbsp;</td></tr>
+ <tr><td>1989</td><td>Born in Mantova, Italy</td></tr>
+</table>
 
-    2016	Local architect for the Italian project “Marble Chapel” by Go Hasegawa & Associates
-    2014 -	Studiospazio
-    2012 - 15	Design tutor, ETH Zurich, with Christian Kerez
-    2012 - 14	Teaching assistant, Accademia di Architettura di Mendrisio, with Go Hasegawa
-    2011 - 12	Teaching assistant, Politecnico di Milano, with 	Federico Bucci and Vittorio Longheu
-    2011	Master Degree, Accademia di Archtiettura di Mendrisio (diploma awarded with honours), with Valerio Olgiati
-    2010	Intern, Go Hasegawa & Associates, Tokyo
-    2008 - 09	Intern, Gigon / Guyer Architekten, Zurich
-    2007	Bachelor Degree, Politecnico di Milano
-    2005	Intern, Renzo Piano Building Workshop, 	Genova
-    1984	Born in Mantova, Italy
-  </p>
-  <p id="tao" style="display:none;">
-  Samuele Squassabia
+  </div>
+  <div id="tao" style="display:none;">
+  <h4>Tao Baerlocher</h4>
 
-  2016	Local architect for the Italian project “Marble Chapel” by Go Hasegawa & Associates
-  2014 -	Studiospazio
-  2012 - 15	Design tutor, ETH Zurich, with Christian Kerez
-  2012 - 14	Teaching assistant, Accademia di Architettura di Mendrisio, with Go Hasegawa
-  2011 - 12	Teaching assistant, Politecnico di Milano, with 	Federico Bucci and Vittorio Longheu
-  2011	Master Degree, Accademia di Archtiettura di Mendrisio (diploma awarded with honours), with Valerio Olgiati
-  2010	Intern, Go Hasegawa & Associates, Tokyo
-  2008 - 09	Intern, Gigon / Guyer Architekten, Zurich
-  2007	Bachelor Degree, Politecnico di Milano
-  2005	Intern, Renzo Piano Building Workshop, 	Genova
-  1984	Born in Mantova, Italy
-</p>
+  <table>
+   <tr><td>2016 - </td><td>Teaching assistant, Accademia di Architettura di Mendrisio, with Junya Ishigami</td></tr>
+   <tr><td>2016 - </td><td>Architect, Riken Yamamoto & Field Shop, </td><td>Zurich</td></tr>
+   <tr><td>2014 - </td><td>Studiospazio</td></tr>
+   <tr><td>2012 - 14</td><td>Teaching assistant, Accademia di </td><td>Architettura di Mendrisio, with Go Hasegawa</td></tr>
+   <tr><td>2012 - 13</td><td>Architect, Charles Pictet architecte, Geneva</td></tr>
+   <tr><td>2011</td><td>Architect, Atelier Peter Zumthor, </td><td>Haldenstein</td></tr>
+   <tr><td>2011</td><td>Master Degree, ETH Zurich, with Christian </td><td>Kerez</td></tr>
+   <tr><td>2009</td><td>Intern, Go Hasegawa & Associates, Tokyo</td></tr>
+   <tr><td>2007</td><td>Intern, Guignard & Saner Architekten, Zurich</td></tr>
+   <tr><td>1985</td><td>Born in Kyoto, Japan</td></tr>
+  </table>
+</div>
       <br/>  <br/>
       <br/>
       <address id="address">
@@ -224,7 +224,8 @@
        var msg = $("#"+id).html();
        vex.dialog.alert({
          unsafeMessage: msg,
-         showCloseButton: true
+         showCloseButton: true,
+         buttons: []
         })
        }
 
