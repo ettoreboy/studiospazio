@@ -98,10 +98,11 @@ a, button {
   position: absolute;
   margin: 0px;
   z-index: 10;
-	top: 50%;
-	top: var(--heightB);
+	/*top: 50%;
 	left: 25%;
 	right: 25%;
+	*/
+	top: var(--heightB);
   left: var(--widthC);
 	right: var(--widthC);
   word-wrap: normal;
