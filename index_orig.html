@@ -138,9 +138,9 @@ ga('send', 'pageview');
               </div>
 
             <!-- Project Plans -->
-            <div class="plans">
+            <div class="plans" id="plans">
               <img id="project1" class="overlay-img" alt="Image not available" src="projects/1/1_Studiospazio_Ursy_Plan-min.png" draggable="false">
-              <img id="project2" class="overlay-img" alt="Image not available" src="projects/2/2_Studiospazio_Pegognaga_Plan-min.png" draggable="false">
+              <img id="project2" style="max-height: 58vh; width: auto" class="overlay-img" alt="Image not available" src="projects/2/2_Studiospazio_Pegognaga_Plan-min.png" draggable="false">
               <a id="project3" class="overlay-img" draggable="false" href="http://www.quart.ch/einzelausgaben-de.php?nID=576">BOOK INFO</a>
               <img id="project4" class="overlay-img" alt="Image not available" src="projects/4/4_Studiospazio_Nuglar_Plan-min.png" draggable="false">
               <img id="project5" class="overlay-img" alt="Image not available" src="projects/5/5_Studiospazio_Vignettaz_Plan-min.png" draggable="false">
@@ -355,13 +355,12 @@ ga('send', 'pageview');
             var currentId = flkty.selectedElement.id;
             if (flkty.selectedIndex >= 0 && currentId !== id) {
               $("div.textgallery #" + id).hide();
-              $('.plans #' + id).hide();
-              console.log("div.plans #" + id +" closes")
+              $("div.plans #" + id).hide();
               if (open_text) {
                 $('div.textgallery div#'+currentId).fadeIn()
               }
               if (open_plan) {
-                $('div.plans #'+ element.id).fadeIn(1000);
+                $('div.plans #'+ currentId).fadeIn(1000);
               }
             }
           }
