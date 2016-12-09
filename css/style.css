@@ -104,7 +104,8 @@ a, button {
 	top: 55.5%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-
+	text-align: center;
+	
   user-drag: none;
   user-select: none;
 -moz-user-select: none;
@@ -293,7 +294,7 @@ address {
 
 	.plans{
 		max-height: 85vh;
-		max-width: 90vw;
+		width: 90vw;
 		top: 55%;
 	}
 
