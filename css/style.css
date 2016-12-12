@@ -238,7 +238,7 @@ body.about-page{
   height: 86%;
   overflow-y: hidden;
   overflow-x: visible;
-
+	margin-left: 10px;
 }
 
 div.info-box .paragraph {
@@ -271,7 +271,7 @@ div.info-box > .paragraph:first-of-type {
   margin-left: calc(50vw + -150px);
 }
 div.info-box > .paragraph:last-of-type {
-  margin-right: 20px;
+  margin-right: 30px;
 }
 
 address {
