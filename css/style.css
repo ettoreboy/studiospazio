@@ -101,7 +101,7 @@ a, button {
 .plans {
 	position: absolute;
 	z-index: 10;
-	top: 55.5%;
+	top: 52.5%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
