@@ -37,17 +37,46 @@
 
   <title>studiospazio</title>
 
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/flickity.css" rel="stylesheet" type="text/css">
+  <!--
+  /**
+  * @license
+  * MyFonts Webfont Build ID 3306133, 2016-11-09T05:47:59-0500
+  *
+  * The fonts listed in this notice are subject to the End User License
+  * Agreement(s) entered into by the website owner. All other parties are
+  * explicitly restricted from using the Licensed Webfonts(s).
+  *
+  * You may obtain a valid license at the URLs below.
+  *
+  * Webfont: AvenirLTStd-Heavy by Linotype
+  * URL: http://www.myfonts.com/fonts/linotype/avenir/85-heavy/
+  * Copyright: Copyright &#x00A9; 1989, 1995, 2002 Adobe Systems Incorporated.  All
+  * Rights Reserved. &#x00A9; 1981, 1995, 2002 Heidelberger Druckmaschinen AG. All rights
+  * reserved.
+  * Licensed pageviews: 250,000
+  *
+  *
+  * License: http://www.myfonts.com/viewlicense?type=web&buildid=3306133
+  *
+  * © 2016 MyFonts Inc
+  */
 
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+-->
+<link href="css/MyFontsWebfontsKit.css" rel="stylesheet" type="text/css">
 
-  ga('create', 'UA-82636367-1', 'auto');
-  ga('send', 'pageview');
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  </script>
+ga('create', 'UA-82636367-1', 'auto');
+ga('send', 'pageview');
+
+</script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -359,8 +388,8 @@
           carousel = document.querySelector('.gallery');
 
           $('.gallery').on('select.flickity',  function(element) {
-            updateText();
-            console.log("selected ");
+              updateText();
+              console.log("selected ");
           });
 
           $(".more-button").on("click", function(e){
@@ -420,79 +449,49 @@
               isDown: deltaY < 0,
               isRight: deltaX > 0
             };
-            if (!isScrolling) {
-              if(directions.isLeft){
-                flkty.previous();
-              } else if(directions.isRight){
-                flkty.next();
-              }
+          if (!isScrolling) {
+            if(directions.isLeft){
+              flkty.previous();
+            } else if(directions.isRight){
+              flkty.next();
             }
-          });
-
-          //start lazyload
-          $(".img-resp").addClass("lazyload");
-          $(document).on('lazybeforesizes', function(e){
-            //use width of parent node instead of the image width itself
-            e.detail.width = $('.flickity-viewport').width();
-          });
-
+          }
         });
 
-        $(window).on('load', function() {
-          var totalImg = $(".gallery-cell").length
-
-          jQuery('.gallery').flickity({
-            // options
-            freeScroll: true,
-            wrapAround: true,
-            prevNextButtons: false,
-            pageDots: false,
-            resize: true,
-            initialIndex: 0,
-            setGallerySize: false,
-            imagesLoaded: true,
-            selectedAttraction: 0.010,
-            friction: 0.40,
-            freeScrollFriction: 0.09
-          });
-
-          $(".se-pre-con").fadeOut("slow");
-
+        //start lazyload
+        $(".img-resp").addClass("lazyload");
+        $(document).on('lazybeforesizes', function(e){
+          //use width of parent node instead of the image width itself
+          e.detail.width = $('.flickity-viewport').width();
         });
 
-        </script>
-        <noscript>
-          <META HTTP-EQUIV="Refresh" CONTENT="0;URL=Error.html">
-          </noscript>
+      });
 
-          <link href="css/reset.css" rel="stylesheet" type="text/css">
-          <link href="css/style.css" rel="stylesheet" type="text/css">
-          <link href="css/flickity.css" rel="stylesheet" type="text/css">
-          <!--
-          /**
-          * @license
-          * MyFonts Webfont Build ID 3306133, 2016-11-09T05:47:59-0500
-          *
-          * The fonts listed in this notice are subject to the End User License
-          * Agreement(s) entered into by the website owner. All other parties are
-          * explicitly restricted from using the Licensed Webfonts(s).
-          *
-          * You may obtain a valid license at the URLs below.
-          *
-          * Webfont: AvenirLTStd-Heavy by Linotype
-          * URL: http://www.myfonts.com/fonts/linotype/avenir/85-heavy/
-          * Copyright: Copyright &#x00A9; 1989, 1995, 2002 Adobe Systems Incorporated.  All
-          * Rights Reserved. &#x00A9; 1981, 1995, 2002 Heidelberger Druckmaschinen AG. All rights
-          * reserved.
-          * Licensed pageviews: 250,000
-          *
-          *
-          * License: http://www.myfonts.com/viewlicense?type=web&buildid=3306133
-          *
-          * © 2016 MyFonts Inc
-          */
+      $(window).on('load', function() {
+        var totalImg = $(".gallery-cell").length
 
-        -->
-        <link href="css/MyFontsWebfontsKit.css" rel="stylesheet" type="text/css">
+        jQuery('.gallery').flickity({
+          // options
+          freeScroll: true,
+          wrapAround: true,
+          prevNextButtons: false,
+          pageDots: false,
+          resize: true,
+          initialIndex: 0,
+          setGallerySize: false,
+          imagesLoaded: true,
+          selectedAttraction: 0.010,
+          friction: 0.40,
+          freeScrollFriction: 0.09
+        });
+
+        $(".se-pre-con").fadeOut("slow");
+
+      });
+
+      </script>
+      <noscript>
+        <META HTTP-EQUIV="Refresh" CONTENT="0;URL=Error.html">
+        </noscript>
       </body>
       </html>
