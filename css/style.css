@@ -159,30 +159,35 @@ header {
   max-width: 100%;
 }
 
-.more-button {
+.icon-button {
   display: inline-block;
   position: relative;
   text-align: center;
 
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+  width: 32px;
+  height: 32px;
 	border-color: transparent;
-  background: white;
 
   padding: 0px;
-  margin-top: 0px;
+  margin-top: 5px;
   cursor: pointer;
-
 }
 
 /*Animate title on opening*/
-.logo, .more-button {
+.logo, .icon-button {
   -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 2s; /* Firefox < 16 */
   -ms-animation: fadein 2s; /* Internet Explorer */
   -o-animation: fadein 2s; /* Opera < 12.1 */
   animation: fadein 2s;
+}
+
+.icon{
+	position: absolute;
+	width: 100%;
+	min-width: 100%;
+	height: auto;
+	transform: translate(-50%, -50%);
 }
 
 @keyframes fadein {
@@ -276,6 +281,29 @@ div.info-box > .paragraph:last-of-type {
 
 address {
   display: block;
+}
+
+/*
+Navigation
+/* big buttons, no circle */
+.flickity-prev-next-button {
+  width:48px;
+  height:48px;
+  background: transparent;
+}
+.flickity-prev-next-button:hover {
+  background: transparent;
+}
+/* arrow color */
+.flickity-prev-next-button .arrow {
+  fill: white;
+}
+.flickity-prev-next-button.no-svg {
+  color: white;
+}
+/* hide disabled button */
+.flickity-prev-next-button:disabled {
+  display: none;
 }
 
 /****************** MOBILE 500px **********************/

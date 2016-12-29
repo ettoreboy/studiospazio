@@ -40,8 +40,8 @@
   <title>studiospazio</title>
 
   <link href="css/reset.css" rel="stylesheet" type="text/css">
-  <link href="css/style.css" rel="stylesheet" type="text/css">
   <link href="css/flickity.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
   <!--
   /**
   * @license
@@ -89,7 +89,9 @@ ga('send', 'pageview');
       <div class="logo">
         <h1 id="about_link"><a href="about.html">studiospazio</a></h1>
       </div>
-      <div class="more-button" title="more information"></div>
+      <div id="more-button" class="icon-button" title="more information">
+        <img alt="more" class="icon" src="img/H_icon_W.png">
+      </div>
     </header>
 
     <div id="textgallery" class="textgallery" itemscope itemtype="http://schema.org/Blog">
@@ -390,10 +392,12 @@ ga('send', 'pageview');
           carousel = document.querySelector('.gallery');
 
           $('.gallery').on('select.flickity',  function(element) {
-              updateText();
+            updateText();
           });
 
-          $(".more-button").on("click", function(e){
+          $("#more-button").on("click", function(e){
+
+            $(this).fadeOut("fast").fadeIn("fast");
 
             flkty = Flickity.data( carousel );
             clicks++;
@@ -450,49 +454,49 @@ ga('send', 'pageview');
               isDown: deltaY < 0,
               isRight: deltaX > 0
             };
-          if (!isScrolling) {
-            if(directions.isLeft){
-              flkty.previous();
-            } else if(directions.isRight){
-              flkty.next();
+            if (!isScrolling) {
+              if(directions.isLeft){
+                flkty.previous();
+              } else if(directions.isRight){
+                flkty.next();
+              }
             }
-          }
+          });
+
+          //start lazyload
+          $(".img-resp").addClass("lazyload");
+          $(document).on('lazybeforesizes', function(e){
+            //use width of parent node instead of the image width itself
+            e.detail.width = $('.flickity-viewport').width();
+          });
+
         });
 
-        //start lazyload
-        $(".img-resp").addClass("lazyload");
-        $(document).on('lazybeforesizes', function(e){
-          //use width of parent node instead of the image width itself
-          e.detail.width = $('.flickity-viewport').width();
+        $(window).on('load', function() {
+          var totalImg = $(".gallery-cell").length
+
+          jQuery('.gallery').flickity({
+            // options
+            freeScroll: true,
+            wrapAround: true,
+            prevNextButtons: true,
+            pageDots: false,
+            resize: true,
+            initialIndex: 0,
+            setGallerySize: false,
+            imagesLoaded: true,
+            selectedAttraction: 0.010,
+            friction: 0.40,
+            freeScrollFriction: 0.09
+          });
+
+          $(".se-pre-con").fadeOut("slow");
+
         });
 
-      });
-
-      $(window).on('load', function() {
-        var totalImg = $(".gallery-cell").length
-
-        jQuery('.gallery').flickity({
-          // options
-          freeScroll: true,
-          wrapAround: true,
-          prevNextButtons: false,
-          pageDots: false,
-          resize: true,
-          initialIndex: 0,
-          setGallerySize: false,
-          imagesLoaded: true,
-          selectedAttraction: 0.010,
-          friction: 0.40,
-          freeScrollFriction: 0.09
-        });
-
-        $(".se-pre-con").fadeOut("slow");
-
-      });
-
-      </script>
-      <noscript>
-        <META HTTP-EQUIV="Refresh" CONTENT="0;URL=Error.html">
-        </noscript>
-      </body>
-      </html>
+        </script>
+        <noscript>
+          <META HTTP-EQUIV="Refresh" CONTENT="0;URL=Error.html">
+          </noscript>
+        </body>
+        </html>
