@@ -317,6 +317,9 @@ Navigation
 		transform: none;
 		max-width: 90vw;
   }
+  div.textgallery{
+		top: 20vh;
+	}
 
 	.plans{
 		max-height: 85vh;
