@@ -323,7 +323,7 @@ Navigation
 
 	.plans{
 		max-height: 85vh;
-		width: 90vw;
+		width: 82vw;
 		top: 55%;
 	}
 
@@ -349,6 +349,11 @@ Navigation
 	  height:32px;
 	  background: transparent;
 	}
+
+	.overlay-img{
+		max-width: 80vw;
+	}
+
 }
 
 /** lazysizes fix **/
