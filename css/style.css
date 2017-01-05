@@ -91,10 +91,13 @@ a, button {
   position: absolute;
   z-index: 10;
 	top: 25vh;
-	margin: 0 auto;
+	margin: 0;
+	margin-left: auto;
+	margin-right: auto;
 	left: 0;
 	right: 0;
   word-wrap: normal;
+	width: 100%;
 	max-width: 68.75vh;
 }
 
@@ -306,34 +309,38 @@ Navigation
   display: none;
 }
 
-/****************** MOBILE 500px **********************/
+/****************** MOBILE 668px **********************/
 
-@media screen and (max-width: 500px), screen and (max-height: 400px) {
+@media screen and (max-width: 668px)  {
   body { font-size: 78%; }
 
-  header, div.textgallery {
+	header{ top: 1%; }
+
+  header, .textgallery {
     left: 12%;
     right: 12%;
 		transform: none;
-		max-width: 90vw;
+		width: auto;
+		max-width: 92vw;
   }
-  div.textgallery{
+
+  .textgallery{
 		top: 20vh;
 	}
 
 	.plans{
 		max-height: 85vh;
 		width: 82vw;
-		top: 55%;
+		top: 58%;
 	}
 
   .textgallery div{
     overflow-y: auto;
   }
 
-  .more-button {
-    width: 12px;
-    height: 12px;
+   .icon-button {
+    width: 24px;
+    height: 24px;
   }
 
 	.logo a{
@@ -355,6 +362,22 @@ Navigation
 	}
 
 }
+
+/* Mobile in landscape */
+ @media screen and (max-width: 668px) and (orientation: landscape) {
+
+ .textgallery {
+	 	top: 23vh;
+	 	left:  8%;
+	 	right: 8%;
+	 	max-width: 95vw;
+	 }
+
+	 .logo a {
+ 		font-size: 30px;
+ 	}
+
+  }
 
 /** lazysizes fix **/
 img[data-sizes="auto"] { display: block;}
