@@ -328,6 +328,10 @@ Navigation
 		top: 20vh;
 	}
 
+	.about-page div.info-box {
+		top: 18vh;
+	}
+
 	.plans{
 		max-height: 85vh;
 		width: 82vw;
