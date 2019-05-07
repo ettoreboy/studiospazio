@@ -4,7 +4,7 @@
   "description": "Full slider webpage with Flickity, using lazy loading",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run build-dev && live-server --browser=firefox --verbose",
+    "dev": "npm run build-dev && live-server --no-browser --verbose",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js --mode production",
     "build-dev": "webpack --config webpack.config.dev.js"
