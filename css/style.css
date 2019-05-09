@@ -241,7 +241,7 @@ body.about-page{
   -webkit-flex-wrap: nowrap; /* Safari 6.1+ */
   flex-wrap: nowrap;
 
-  top: 25vh;
+  top: 20vh;
   width: 100%;
   height: 86%;
   overflow-y: hidden;
@@ -329,7 +329,7 @@ Navigation
 	}
 
 	.about-page div.info-box {
-		top: 18vh;
+		top: 15vh;
 	}
 
 	.plans{
