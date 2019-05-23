@@ -281,6 +281,11 @@ div.info-box > .paragraph:first-of-type {
 div.info-box > .paragraph:last-of-type {
   margin-right: 30px;
 }
+a.info-box:hover {
+  text-decoration: none;
+  color: gray;
+  border: none;
+}
 
 address {
   display: block;
