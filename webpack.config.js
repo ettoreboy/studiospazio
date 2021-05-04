@@ -32,14 +32,13 @@ const precss = require('precss');
  *
  */
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackCleanPlugin = require('webpack-clean-plugin');
 
 module.exports = {
 	module: {
 		rules: [
 			{
-				include: [path.resolve(__dirname, 'src')],
+				include: [path.resolve(__dirname, 'js')],
 				loader: 'babel-loader',
 
 				options: {
@@ -114,18 +113,6 @@ module.exports = {
 	},
 
 	plugins: [
-		new HtmlWebpackPlugin({
-			template: 'html/index.html',
-			filename: '../index.html',
-			inject : false,
-			minify: true
-		}),
-		new HtmlWebpackPlugin({
-			template: 'html/about.html',
-			filename: '../about.html',
-			inject: false,
-			minify: true
-		}),
 		new WebpackCleanPlugin({
 			on: "emit",
 			path: ['./dist']
