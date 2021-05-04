@@ -32,7 +32,6 @@ const precss = require('precss');
  *
  */
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackCleanPlugin = require('webpack-clean-plugin');
 
 module.exports = {
@@ -127,18 +126,9 @@ module.exports = {
 	},
 
 	plugins: [
-		new HtmlWebpackPlugin({
-			template: 'html/index.html',
-			filename: '../index.html',
-			inject: false
-		}),
-		new HtmlWebpackPlugin({
-			template: 'html/about.html',
-			filename: '../about.html',
-			inject: false
-		}),
 		new WebpackCleanPlugin({
 			on: "emit",
-			path: ['./dist']
+			path: ['./dist'],
+			verbose: true
 		})]
 };
