@@ -32,17 +32,6 @@ const precss = require('precss');
  *
  */
 
-/*
- * We've enabled UglifyJSPlugin for you! This minifies your app
- * in order to load faster and run less javascript.
- *
- * https://github.com/webpack-contrib/uglifyjs-webpack-plugin
- *
- */
-
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackCleanPlugin = require('webpack-clean-plugin');
 
 module.exports = {
@@ -137,18 +126,9 @@ module.exports = {
 	},
 
 	plugins: [
-		new HtmlWebpackPlugin({
-			template: 'html/index.html',
-			filename: '../index.html',
-			inject: false
-		}),
-		new HtmlWebpackPlugin({
-			template: 'html/about.html',
-			filename: '../about.html',
-			inject: false
-		}),
 		new WebpackCleanPlugin({
 			on: "emit",
-			path: ['./dist']
+			path: ['./dist'],
+			verbose: true
 		})]
 };
